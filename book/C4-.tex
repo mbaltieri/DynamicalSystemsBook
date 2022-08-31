@@ -32,7 +32,7 @@ system:
   \item Can the kinds of input a
     system takes in depend on what it's putting out, and how do they depend on it?
   \item What sorts of changes are possible in a given state?
-  \item What does it mean for states to change. 
+  \item What does it mean for states to change.
   \item How should the way the state changes vary with the input?
   \end{enumerate}
 \end{informal}
@@ -137,7 +137,7 @@ together and then compose them; the end result is the same.
   vertically composing the square in
   \cref{eqn.understanding_squares_in_double_cat_of_arenas2} with the square in
   \cref{eqn.understanding_squares_in_double_cat_of_arenas}. This basic fact
-  underlies our arguments in the upcoming \cref{sec.steady_states_matrix_arithmetic}. 
+  underlies our arguments in the upcoming \cref{sec.steady_states_matrix_arithmetic}.
 \end{example}
 
 While our results are most smoothly proven in the double category of arenas,
@@ -147,7 +147,7 @@ differential equation in terms of its parameters, and to get a specific solution
 we must first choose specific parameters. Working in the double category of
 arenas means treating the chart $\lens{f_{\flat}}{f}$ and the underlying map
 $\phi$ of a behavior on equal footing, but we would instead like to say that
-$\phi$ is a behavior for the chart $\lens{f_{\flat}}{f}$. 
+$\phi$ is a behavior for the chart $\lens{f_{\flat}}{f}$.
 
 We would also like to think of the wiring together of systems along a lens
 $\lens{w^{\sharp}}{w}$ as an operation performed on systems, and then inquire
@@ -288,7 +288,7 @@ We repeat the definition of $\Cat{Sys}\lens{I}{O}$ for an arbitrary systems theo
     \lens{T\State{S}}{\State{S}} \fromto \lens{I}{O}$, which are
     \emph{systems} in this systems theory (\cref{def.doctrine_system}).
   \item Its maps are \emph{simulations}, the behaviors which have identity
-    chart. That is, the maps are the squares 
+    chart. That is, the maps are the squares
 \[
     \begin{tikzcd}
       \lens{T\State{T}}{\State{T}} \ar[r, shift left, "\lens{T\phi}{\phi}"] \ar[r, shift right] \ar[d, shift right,
@@ -305,7 +305,7 @@ We repeat the definition of $\Cat{Sys}\lens{I}{O}$ for an arbitrary systems theo
   \end{definition}
 
 Now, thanks to the double category of arenas, we can show that every lens
-$\lens{f^{\sharp}}{f} : \lens{I}{O} \fromto \lens{I'}{O'}$ gives a functor 
+$\lens{f^{\sharp}}{f} : \lens{I}{O} \fromto \lens{I'}{O'}$ gives a functor
   $$\Cat{Sys}\lens{f^\sharp}{f} : \Cat{Sys}\lens{I}{O} \to
   \Cat{Sys}\lens{I}{O}.$$
 We can see this functor as the operation of wiring together our
@@ -313,7 +313,7 @@ $\lens{I}{O}$-systems along the lens $\lens{f^{\sharp}}{f}$ to get
 $\lens{I'}{O'}$-systems. The functoriality of this operation say that wiring
 preserves simulations --- if systems $\Sys{S_i}$ simulate $\Sys{T_i}$ by $\phi_i$,
 then the wired together systems $\Sys{S}$ simulate $\Sys{T}$ by $\phi = \prod_i
-\phi_i$. 
+\phi_i$.
 
 \begin{proposition}\label{prop.lens_comp_functor_discrete}
   For a lens $\lens{f^{\sharp}}{f} : \lens{I}{O} \leftrightarrows
@@ -346,7 +346,7 @@ then the wired together systems $\Sys{S}$ simulate $\Sys{T}$ by $\phi = \prod_i
         "\lens{f^{\sharp}}{f}"] \ar[d, shift right]\\
     \lens{I}{O} \ar[r, shift right, equals]
     \ar[r, shift left, equals] & \lens{I'}{O'} \\
-  \end{tikzcd} 
+  \end{tikzcd}
       \]
   \end{itemize}
 \end{proposition}
@@ -361,7 +361,7 @@ then the wired together systems $\Sys{S}$ simulate $\Sys{T}$ by $\phi = \prod_i
       \middle|\frac{\littlelens{T\psi}{\psi}}{\littlelens{f^{\sharp}}{f}} \right. &\mbox{by the interchange law.}
   \end{align*}
   Identities are clearly preserved, since the underlying morphism $\phi :
-  \State{T} \to \State{S}$ is not changed. 
+  \State{T} \to \State{S}$ is not changed.
 \end{proof}
 
 
@@ -384,7 +384,7 @@ then the wired together systems $\Sys{S}$ simulate $\Sys{T}$ by $\phi = \prod_i
 \begin{align*}
   \Cat{Sys}\lens{f_{\flat}}{f}(\Sys{T}, \Sys{S}) &= \left\{ \phi : \State{T} \to
                                                    \State{S}\, \middle| \mbox{ $\phi$ is a behavior with chart $\lens{f_{\flat}}{f}$} \right\}\\
-  &= \left\{  
+  &= \left\{
     {
     \begin{tikzcd}[ampersand replacement = \&]
       \lens{\State{T}}{\State{T}} \ar[r, dashed, shift left, "\lens{\phi \circ
@@ -403,7 +403,7 @@ The action of the profunctor $\Cat{Sys}\lens{f_{\flat}}{f}$ on simulations in th
 categories $\Cat{Sys}\lens{I}{O}$ and $\Cat{Sys}\lens{I'}{O'}$ is given by
 composition on the left and right. That is, for simulations $\phi : \Sys{T'} \to
 \Sys{T}$ and $\psi : \Sys{S} \to \Sys{S'}$ and $\lens{f_{\flat}}{f}$-behavior
-$\beta \in \Cat{Sys}\lens{f_{\flat}}{f}(\Sys{T}, \Sys{S})$, we define 
+$\beta \in \Cat{Sys}\lens{f_{\flat}}{f}(\Sys{T}, \Sys{S})$, we define
 \begin{equation}\label{eqn.profunctor_from_chart}
 \phi \cdot \beta \cdot \psi := \phi \mid \beta \mid \psi.
 \end{equation}
@@ -411,7 +411,7 @@ $\beta \in \Cat{Sys}\lens{f_{\flat}}{f}(\Sys{T}, \Sys{S})$, we define
 
 \begin{exercise}\label{ex.profunctor_from_chart}
  Prove \cref{prop.profunctor_from_chart}. That is, show that the action defined
- in \cref{eqn.profunctor_from_chart} is functorial, giving a functor 
+ in \cref{eqn.profunctor_from_chart} is functorial, giving a functor
 $$\Cat{Sys}\littlelens{I}{O}\op \times \Cat{Sys}\littlelens{I'}{O'} \to \smset.$$
 (Hint: use the double categorical notation. It will be much more concise.)
 \end{exercise}
@@ -420,7 +420,7 @@ $$\Cat{Sys}\littlelens{I}{O}\op \times \Cat{Sys}\littlelens{I'}{O'} \to \smset.$
   With a little work in the double category of arenas, we can give a very useful
   example of a square in the double category of profunctors. Consider this
   square in the double category of arenas:
-\[ \alpha = 
+\[ \alpha =
   \begin{tikzcd}
     \lens{I_1}{O_1} \ar[d, shift right, "\lens{j_{\flat}}{j}"'] \ar[d, shift left,
         leftarrow] \ar[r, shift right]
@@ -428,7 +428,7 @@ $$\Cat{Sys}\littlelens{I}{O}\op \times \Cat{Sys}\littlelens{I'}{O'} \to \smset.$
         "\lens{k^{\sharp}}{k}"] \ar[d, shift right]\\
     \lens{I_3}{O_3} \ar[r, shift right, "\lens{g_{\flat}}{g}"']
     \ar[r, shift left] & \lens{I_4}{O_4} \\
-  \end{tikzcd} 
+  \end{tikzcd}
 \]
 As we saw in \cref{prop.lens_comp_functor_discrete}, we get functors
 $\Cat{Sys}\lens{j^{\sharp}}{j} : \Cat{Sys}\lens{I_1}{O_1} \to
@@ -492,7 +492,7 @@ $$\Cat{Sys}(\alpha)(\phi) = \frac{\phi}{\alpha}.$$
 We record this observation in a proposition.
 \begin{proposition}\label{prop.prof_square_from_arena_square}
   Given a square
-\[ \alpha = 
+\[ \alpha =
   \begin{tikzcd}
     \lens{I_1}{O_1} \ar[d, shift right, "\lens{j_{\flat}}{j}"'] \ar[d, shift left,
         leftarrow] \ar[r, shift right]
@@ -500,7 +500,7 @@ We record this observation in a proposition.
         "\lens{k^{\sharp}}{k}"] \ar[d, shift right]\\
     \lens{I_3}{O_3} \ar[r, shift right, "\lens{g_{\flat}}{g}"']
     \ar[r, shift left] & \lens{I_4}{O_4} \\
-  \end{tikzcd} 
+  \end{tikzcd}
 \]
 in the double category of arenas, we get a square
 
@@ -515,7 +515,7 @@ in the double category of arenas, we get a square
 "{\Cat{Sys}\lens{g_{\flat}}{g}}"']& & \Cat{Sys}\littlelens{I_4}{O_4}
 \end{tikzcd}
 \]
-in the double category of categories, functors, and profunctors given by 
+in the double category of categories, functors, and profunctors given by
 $$\Cat{Sys}(\alpha)(\phi) = \frac{\phi}{\alpha}.$$
 
 \end{proposition}
@@ -523,7 +523,7 @@ $$\Cat{Sys}(\alpha)(\phi) = \frac{\phi}{\alpha}.$$
 The naturality of this transformation follows from the double category laws. We
 leave the particulars as an exercise.
 \begin{exercise}\label{ex.prof_square_from_arena_square_naturality}
-  Prove that the family of functions 
+  Prove that the family of functions
   \[
 \Cat{Sys}(\alpha) : \Cat{Sys}\lens{f_{\flat}}{f} \to
 \Cat{Sys}\lens{g_{\flat}}{g}\left( \Cat{Sys}\littlelens{j^{\sharp}}{j}, \Cat{Sys}\littlelens{k^{\sharp}}{k} \right)
@@ -557,7 +557,7 @@ just throwing them into one large category. We've made the following observation
   \item If we wire together a chart for one interface into a chart for the wired
     interface, then every behavior for that chart gives rise to a behavior for
     the wired together chart. We formalized this observation as a morphism of
-    profunctors 
+    profunctors
 \[
 \Cat{Sys}(\alpha) : \Cat{Sys}\lens{f_{\flat}}{f} \to
 \Cat{Sys}\lens{g_{\flat}}{g}\left( \Cat{Sys}\littlelens{j^{\sharp}}{j}, \Cat{Sys}\littlelens{k^{\sharp}}{k} \right)
@@ -575,7 +575,7 @@ doubly indexed category of vectors of sets.
 A \emph{doubly indexed category} $\cat{A} : \cat{D} \to \Cat{Cat}$ consists of
 the following:\footnote{This is what an expert would call a \emph{unital (or
     normal) lax double functor}, but we won't need this concept in any other
-  setting.} 
+  setting.}
 \begin{itemize}
   \item A double category $\cat{D}$ called the \emph{indexing base}.
   \item For every object $D \in \cat{D}$, we have a category $\cat{A}(D)$.
@@ -584,7 +584,7 @@ the following:\footnote{This is what an expert would call a \emph{unital (or
     \to \cat{A}(D')$.
   \item For every horizontal arrow $f : D \to D'$, we have a profunctor
 $\cat{A}(f) : \cat{A}(D) \tickar \cat{A}(D')$.
-  \item For every square 
+  \item For every square
 \[
         \begin{tikzcd}[sep=tiny]
           A \ar[dd, "j"'] \ar[rr, "f"] & & B \ar[dd, "k"] \\
@@ -626,14 +626,14 @@ and that $\cat{A}(\id_D) = \id_{\cat{A}(D)}$.\footnote{Here, we are hiding some
     D_2 \to D_3$ and $h : D_3 \to D_4$, the compositors $\mu$ satisfy the
     following associativity and unitality conditions:
 \begin{itemize}
-\item (Associativity) $$\frac{\mu_{f, g} | \cat{A}(h)}{\mu_{(f \mid g), h}} \coheq 
+\item (Associativity) $$\frac{\mu_{f, g} | \cat{A}(h)}{\mu_{(f \mid g), h}} \coheq
   \frac{\cat{A}(f) | \mu_{g, h}}{\mu_{f, (g \mid h)}}.$$
 \item (Unitality) The profunctor $\cat{A}(\id_{D_1}) : \cat{A}(D_1) \tickar
   \cat{A}(D_1)$ is the identity profunctor, $\cat{A}(\id_{D_1}) = \cat{A}(D_1)$.
   Furthermore, $\mu_{\id_{D_1}, f}$ and $\mu_{f, \id_{D_2}}$ are equal to the
   isomorphisms of \cref{ex.identity_profunctor} given by the naturality of
   $\cat{A}(f)$ on the left and right respectively. We may sumarize this may
-  saying that 
+  saying that
 $$\mu_{\id, f} = \id_{\cat{A}(f)} = \mu_{f, \id}.$$
 \end{itemize}
 \item (Naturality of Compositors) For any horizontally composable squares
@@ -650,10 +650,10 @@ $$\mu_{\id, f} = \id_{\cat{A}(f)} = \mu_{f, \id}.$$
            D \ar[rr, "g_2"'] & & F
         \end{tikzcd}
   \]
-  
+
 \[
 \frac{\cat{A}( \alpha ) \mid \cat{A}( \beta )}{\mu_{g_1, g_2}} = \frac{\mu_{f_1,f_2}}{\cat{A}(\alpha \mid \beta)}.
-\] 
+\]
 \end{itemize}
 \end{definition}
 
@@ -704,7 +704,7 @@ This is defined in \cref{prop.lens_comp_functor_discrete}.
 \begin{align*}
   \Cat{Sys}\lens{f_{\flat}}{f}(\Sys{T}, \Sys{S}) &= \left\{ \phi : \State{T} \to
                                                    \State{S}\, \middle| \mbox{ $\phi$ is a behavior with chart $\lens{f_{\flat}}{f}$} \right\}\\
-  &= \left\{  
+  &= \left\{
     {
     \begin{tikzcd}[ampersand replacement = \&]
       \lens{T\State{T}}{\State{T}} \ar[r, dashed, shift left, "\lens{T\phi}{\phi}"] \ar[r, dashed, shift right] \ar[d, shift right,
@@ -742,7 +742,7 @@ category of arenas.
     \Cat{Sys}\lens{k^{\sharp}}{k} \circ \Cat{Sys}\lens{j^{\sharp}}{j}$ by
     vertical associativity:
 \begin{align*}
-  \Cat{Sys}\left(\lens{k^{\sharp}}{k} \circ \lens{j^{\sharp}}{j} \right)(\phi) &= \frac{\phi}{\left( \frac{\littlelens{j^{\sharp}}{j}}{\littlelens{k^{\sharp}}{k}} \right)} 
+  \Cat{Sys}\left(\lens{k^{\sharp}}{k} \circ \lens{j^{\sharp}}{j} \right)(\phi) &= \frac{\phi}{\left( \frac{\littlelens{j^{\sharp}}{j}}{\littlelens{k^{\sharp}}{k}} \right)}
 = \frac{\left( \frac{\phi}{\littlelens{j^{\sharp}}{j}} \right)}{\littlelens{k^{\sharp}}{k}} \\
 &= \Cat{Sys}\lens{k^{\sharp}}{k} \circ \Cat{Sys}\lens{j^{\sharp}}{j}(\phi).
 \end{align*}
@@ -755,7 +755,7 @@ category of arenas.
 \item (Naturality of Compositor) This law follows from interchange in
   $\Cat{Arena}$.
 \begin{align*}
-  \left( \frac{\Cat{Sys}(\alpha) \mid \Cat{Sys}(\beta)}{\mu} \right)(\phi, \psi) &= \left. \frac{\phi}{\alpha} \middle| \frac{\psi}{\beta} \right. 
+  \left( \frac{\Cat{Sys}(\alpha) \mid \Cat{Sys}(\beta)}{\mu} \right)(\phi, \psi) &= \left. \frac{\phi}{\alpha} \middle| \frac{\psi}{\beta} \right.
 = \frac{\phi \mid \psi}{\alpha \mid \beta} \\
 &= \left(  \frac{\mu}{\Cat{Sys}(\alpha \mid \beta)}\right)(\phi, \psi).
 \end{align*}
@@ -765,16 +765,16 @@ category of arenas.
 \paragraph{The doubly indexed category of vectors of sets}
 
 In addition to our doubly indexed category of systems, we have a doubly indexed
-category of ``vectors of sets''. 
+category of ``vectors of sets''.
 
 Classically, an $m \times n$ matrix $M$ can act on a vector $v$ of length $n$ by multiplication to get
 another vector $Mv$ of length $m$. We can generalize this to matrices of sets if
 we define a vector of sets of length $A$ to be a dependent set $V : A \to
-\smset$. 
+\smset$.
 \begin{definition}\label{def.linear_functor}
   For a set $A$, we define the category of \emph{vectors of sets of length} $A$
   to be $$\Cat{Vec}(A) \coloneqq \smset^A$$
-the category of sets depending on $A$. 
+the category of sets depending on $A$.
 
 Given a $(B \times A)$-matrix $M : B \times A \to \smset$ (as in \cref{def.double_cat_of_matrices}), we can treat a $A$-vector $V$ as a $A \times
 \ord{1}$ matrix and form the $B \times \ord{1}$ matrix $MV$. This gives us a
@@ -819,9 +819,9 @@ W_{f(a)}$ indexed by $a \in A$. This is natural by index-wise composition.
         \end{tikzcd}
   \]
   defined by sending a family of functions $F : (a \in A) \to V_{a} \to
-  W_{f(a)}$ in $\Cat{Vec}(f)(V, W)$ to the family 
+  W_{f(a)}$ in $\Cat{Vec}(f)(V, W)$ to the family
   \begin{align*}
-\Cat{Vec}(\alpha)(F) : (c \in C) \to MV_c &\to MW_{g(c)} \\ 
+\Cat{Vec}(\alpha)(F) : (c \in C) \to MV_c &\to MW_{g(c)} \\
   \Cat{Vec}(\alpha)(F)(c, (a, m, v)) &= (f(a), \alpha(m), F(a, v))
   \end{align*}
   That is, $\Cat{Vec}(\alpha)(F)(c, -)$ takes an element $(a, m, v) \in MV_{c} =
@@ -829,7 +829,7 @@ W_{f(a)}$ indexed by $a \in A$. This is natural by index-wise composition.
   F(a, v))$ of $MW_{g(c)} = \sum_{b \in B} N_{g(c)b} \times W_b$.
 \item The compositor is given by componentwise composition: If $f : A \to B$ and
   $g : B \to C$ and $F \in \Cat{Vec}(f)(V, W)$ and $G \in \Cat{Vec}(g)(W, U)$,
-  then 
+  then
 \begin{align*}
   \mu_{f, g}(F, G) : (a \in A) \to V_{a} &\to U_{gf(a)} \\
   \mu_{f, g}(F, G)(a, v) &\coloneqq G(f(a), F(a, v)).
@@ -872,7 +872,7 @@ equivalently a square of the following form in $\Cat{Matrix}$:
   \right\}
 \]
 Then the Horizontal Lax Functoriality laws follow from associativity and unitality of
-horizontal composition of squares in $\Cat{Matrix}$! 
+horizontal composition of squares in $\Cat{Matrix}$!
 
 
 Finally, we need to interpret the rather fiddly transformation
@@ -901,11 +901,11 @@ that it will facilitate our main theorem of this chapter: change of systems theo
   \cat{D}_0 \to \cat{D}_1$ and produce a doubly indexed category $\sigma F :
   \cat{D}_1 \to \Cat{Cat}$ indexed by its codomain. So, in order to describe the
   vertical slice construction, we will need the notion of double functor. We will need the notion of double functor for much of the coming theory as well
-  
+
 
 
 \subsection{Double Functors}
-  
+
 A double functor is the correct sort of functor between double categories. Just
 as a double category has a bit more than twice the information involved in a
 category, a double functor has a bit more than twice the information involved in
@@ -1008,7 +1008,7 @@ category to its Grothendieck double construction (\cref{def.groth_double_constru
   \[
 \lens{\overline{F}}{F} : \Cat{Arena}_{\cat{A}} \to \Cat{Arena}_{\cat{B}}.
   \]
-  
+
   Recall that the Grothendieck construction is functorial
   (\cref{prop.functoriality_monoidal_groth}). From an indexed functor $(F,
   \overline{F}) : \cat{A} \to \cat{B}$, we get a functor
@@ -1022,11 +1022,11 @@ category to its Grothendieck double construction (\cref{def.groth_double_constru
   construction of the opposite, we can take the vertical component of
   $\lens{\overline{F}}{F} :\Cat{Arena}_{\cat{A}} \to \Cat{Arena}_{\cat{B}} $ to
   be $\lens{\overline{F}\op}{F} : \int^{C : \cat{C}}\cat{A}(C)\op \to \int^{D :
-    \cat{D}} \cat{B}(D)\op$. 
+    \cat{D}} \cat{B}(D)\op$.
 
 All that remains to check then is that
   $\lens{\overline{F}}{F} ::\Cat{Arena}_{\cat{A}} \to \Cat{Arena}_{\cat{B}}$
-  preserves squares. Let 
+  preserves squares. Let
 \[
     \begin{tikzcd}
       \lens{A_1}{C_1} \arrow[r, shift left, "\lens{g_{1\flat}}{g_1}"]\arrow[r, shift right] \arrow[d, leftarrow,  shift left] \arrow[d, shift right, "\lens{f_1^{\sharp}}{f_1}"'] & \lens{A_2}{C_2} \arrow[d, leftarrow, shift left, "\lens{f_2^{\sharp}}{f_2}"] \arrow[d, shift right] \\
@@ -1034,7 +1034,7 @@ All that remains to check then is that
       "\lens{g_{2\flat}}{g_2}"'] & \lens{A_4}{C_4}
     \end{tikzcd}
 \]
-be a square in $\Cat{Arena}_{\cat{A}}$. We need to show that 
+be a square in $\Cat{Arena}_{\cat{A}}$. We need to show that
 \[
     \begin{tikzcd}
       \lens{\overline{F}A_1}{FC_1} \arrow[r, shift left, "\lens{\overline{F}g_{1\flat}}{Fg_1}"]\arrow[r, shift right] \arrow[d, leftarrow,  shift left] \arrow[d, shift right, "\lens{\overline{F}f_1^{\sharp}}{Ff_1}"'] & \lens{\overline{F}A_2}{FC_2} \arrow[d, leftarrow, shift left, "\lens{\overline{F}f_2^{\sharp}}{Ff_2}"] \arrow[d, shift right] \\
@@ -1061,14 +1061,14 @@ because $(F, \overline{F})$ is an indexed functor.
 We are now ready to define the vertical slice construction.
   \begin{definition}[The Vertical Slice Construction]\label{defn.vertical_slice}
 Let $F : \cat{D}_0 \to \cat{D}_1$ be a double functor. The \emph{vertical slice
-  construction} of $F$ is the doubly indexed category 
+  construction} of $F$ is the doubly indexed category
 $$\sigma F : \cat{D}_1 \to \Cat{Cat}$$
 defined as follows:
 \begin{itemize}
   \item For $D \in \cat{D}_1$, $\sigma F(D)$ is the category whose objects are
-    pairs $(A, j)$ of an object $A \in \cat{D}_0$ and a vertical map $f :
+    pairs $(A, j)$ of an object $A \in \cat{D}_0$ and a vertical map $j :
     FA \to D$. A map $(A_1, j_1) \to (A_2, j_2)$ is a pair $(f, \alpha)$ of a
-    horizontal $f : A_1 \to A_2$ and a square 
+    horizontal $f : A_1 \to A_2$ and a square
 \[
         \begin{tikzcd}[sep=tiny]
           FA_1 \ar[dd, "j_1"'] \ar[rr, "Ff"] & & FA_2 \ar[dd, "j_2"] \\
@@ -1098,12 +1098,12 @@ in $\cat{D}_1$.
 More concisely, this is
 $$\sigma F(j)(f, \alpha) = \left(f, \frac{\alpha}{j} \right).$$
 \item For every horizontal $g : D \to D'$ in $\cat{D}_1$, we associate the
-  profunctor $\sigma F (g) : \sigma F(D) \tickar \sigma F(D')$ given by 
+  profunctor $\sigma F (g) : \sigma F(D) \tickar \sigma F(D')$ given by
 \[
         \begin{tikzcd}[sep=tiny]
           FA_1 \ar[dd, "j_1"'] \\
           \phantom{\alpha} \\
-          D 
+          D
         \end{tikzcd}\, ,\,
         \begin{tikzcd}[sep=tiny]
           FA_2 \ar[dd, "j_2"'] \\
@@ -1111,8 +1111,8 @@ $$\sigma F(j)(f, \alpha) = \left(f, \frac{\alpha}{j} \right).$$
           D'
         \end{tikzcd}
 \quad \mapsto \quad
-\left\{  \left( f,  
-        \begin{tikzcd}[sep=tiny] 
+\left\{  \left( f,
+        \begin{tikzcd}[sep=tiny]
           FA_1 \ar[dd, "j_1"'] \ar[rr, dashed, "Ff"] & & FA_2 \ar[dd, "j_2"] \\
            & \alpha & \\
           D \ar[rr, "g"'] & & D'
@@ -1131,7 +1131,7 @@ profunctor of $\sigma F(D)$.
 
 
 Let's check now that this does indeed satisfy the laws of a doubly indexed
-category. The proof is exactly as it was for $\Cat{Sys}$. 
+category. The proof is exactly as it was for $\Cat{Sys}$.
 \begin{itemize}
   \item (Vertical Functoriality) We show that $\sigma F\left(
       \frac{k_1}{k_2} \right) =
@@ -1160,7 +1160,7 @@ category. The proof is exactly as it was for $\Cat{Sys}$.
 \end{itemize}
 
 We can now see that the vertical slice construction generalizes both the
-constructions of $\Cat{Sys}_{\mathbb{D}}$ and $\Cat{Vec}$. 
+constructions of $\Cat{Sys}_{\mathbb{D}}$ and $\Cat{Vec}$.
 \begin{proposition}\label{prop.sys_is_vertical_slice}
   The doubly indexed category $\Cat{Sys}_{\mathbb{D}}$ of systems in a systems theory
   $\mathbb{D} = (\cat{A} : \cat{C}\op \to \Cat{Cat}, T)$ is the vertical slice
@@ -1212,12 +1212,12 @@ Let $F$ and $G : \cat{D} \to \cat{E}$ be double functors. A \emph{vertical
 \end{itemize}
 This data must satisfy the following laws:
 \begin{itemize}
-\item (Vertical Naturality) For any vertical $j : D_1 \to D_2$, we have 
+\item (Vertical Naturality) For any vertical $j : D_1 \to D_2$, we have
 $$\frac{Fj}{v_{D_2}} = \frac{v_{D_1}}{Gj}.$$
 \item (Horizontal Naturality) For any horizontal $f_1 : D_1 \to D_2$ and $f_2 :
-  D_2 \to D_3$, we have 
+  D_2 \to D_3$, we have
 $$v_{f_1 \mid f_2} = v_{f_1} \mid v_{f_2}.$$
-\item (Horizontal Unity) $v_{\id_D} = \id_{v_D}$. 
+\item (Horizontal Unity) $v_{\id_D} = \id_{v_D}$.
 \item (Square naturality) For any square
 \[
         \begin{tikzcd}[sep=tiny]
@@ -1235,7 +1235,7 @@ Dually, a \emph{horizontal transformation} $h : F \Rightarrow G$ consists of the
 following data:
 \begin{itemize}
 \item For every object $D \in \cat{D}$ a horizontal morphism $h_D : FD \to GD$.
-\item For every vertical $j : D \to D'$ in $\cat{D}$, a square 
+\item For every vertical $j : D \to D'$ in $\cat{D}$, a square
 \[
         \begin{tikzcd}[sep=tiny]
           FD \ar[dd, "Fj"'] \ar[rr, "h_D"] & & GD
@@ -1262,7 +1262,7 @@ $$h_{\frac{j_1}{j_2}} = \frac{h_{j_1}}{h_{j_2}}.$$
           D_3 \ar[rr, "f_2"'] & & D_4
         \end{tikzcd}
 \]
-we have 
+we have
 $$F\alpha \mid h_{j_2} = h_{j_1} \mid G\alpha.$$
 \end{itemize}
 \end{definition}
@@ -1291,7 +1291,7 @@ for every vertical map $j$.
 \end{lemma}
 \begin{proof}
   We will prove that $\frac{v_1}{v_2}$ is a vertical transformation; the proof
-  that $h_1 \mid h_2$ is a horizontal transformation is precisely dual. 
+  that $h_1 \mid h_2$ is a horizontal transformation is precisely dual.
   \begin{itemize}
   \item (Vertical Naturality) This follows by the same argument as for Square
     Naturality below, taking $\alpha = j$ for a vertical$j : D_1 \to D_2$.
@@ -1305,7 +1305,7 @@ for every vertical map $j$.
     &= \left. \left( \frac{v_1}{v_2} \right)_{f_1} \middle| \left( \frac{v_1}{v_2} \right)_{f_2} \right. .
   \end{align*}
 
-    
+
 \item (Horizontal Unity) This holds by definition.
 
 \item (Square Naturality) Consider a square $\alpha$ of the following signature:
@@ -1322,28 +1322,28 @@ for every vertical map $j$.
       \frac{F_1 \alpha}{\left( \frac{v_1}{v_2} \right)_{f_2}} &= \begin{tabular}{c}
         $F_1 \alpha $ \\ \hline
         $(v_1)_{f_2}$ \\ \hline
-        $(v_2)_{f_2}$ 
+        $(v_2)_{f_2}$
      \end{tabular} \\
 &= \begin{tabular}{c}
         $(v_1)_{f_1}$ \\ \hline
         $F_2 \alpha$ \\ \hline
-        $(v_2)_{f_2}$ 
+        $(v_2)_{f_2}$
      \end{tabular} \\
 &= \begin{tabular}{c}
         $(v_1)_{f_1}$ \\ \hline
         $(v_2)_{f_1}$ \\ \hline
-        $F_3 \alpha$ 
+        $F_3 \alpha$
      \end{tabular} \\
 &= \frac{\left( \frac{v_1}{v_2} \right)_{f_1}}{F_3 \alpha}.
     \end{align*}
   \end{itemize}
-  
+
 \end{proof}
 
 Amongst double functors we have found two sorts of maps --- vertical and
 horizontal --- each with their own sort of composition. This suggests that there
 should be a \emph{double category} of double functors $\cat{D} \to \cat{E}$,
-just as there is a category of functors between two categories. 
+just as there is a category of functors between two categories.
 
 \begin{theorem}
 Let $\cat{D}$ and $\cat{E}$ be double categories. There is a double category
@@ -1385,7 +1385,7 @@ which satisfies the following laws:
   and $h_2$ so that these composites have the same signature.
 \end{itemize}
  The compositions $\alpha \mid \beta$ and $\frac{\alpha}{\beta}$ are given
- componentwise by $\alpha_D \mid \beta_D$ and $\frac{\alpha_D}{\beta_D}$.      
+ componentwise by $\alpha_D \mid \beta_D$ and $\frac{\alpha_D}{\beta_D}$.
 \end{theorem}
 \begin{proof}
   Since the compositions of modifications are given componentwise, they will
@@ -1459,11 +1459,11 @@ Before we move on, let's record an important lemma relating modifications to squ
                                      \end{tabular}
 \end{tikzcd}
   \]
- We may refer to the single square given by any of these composites by $\alpha_s$. 
+ We may refer to the single square given by any of these composites by $\alpha_s$.
 \end{lemma}
 \begin{proof}
 These all follow by cycling through the square naturality laws of the
-transformations and the coherence laws of the modification. 
+transformations and the coherence laws of the modification.
 \end{proof}
 
 \subsection{Vertical Slice Construction: Functoriality}\label{sec.functoriality_vertical_slice}
@@ -1533,16 +1533,16 @@ of the more general lax variety.
 \begin{tikzcd}
 \cat{D}_1 \arrow[dd, "{F^0}"'] \arrow[rrd, "{ \cat{A} }", bend left] & {} \arrow[dd, "{F}"', Rightarrow] &      \\
   &   & \Cat{Cat} \\
-\cat{D}_2 \arrow[rru, bend right, "{\cat{B}}"']      & {}   &     
+\cat{D}_2 \arrow[rru, bend right, "{\cat{B}}"']      & {}   &
 \end{tikzcd}
   \]
-  
+
 \begin{enumerate}
   \item\label{def:lax.doubly.indexed.functor.0} A double functor $$F^0 : \cat{D}_1 \to \cat{D}_2.$$
   \item \label{def:lax.doubly.indexed.functor.1}For each object $D \in \cat{D}_1$, a functor $$F^D : \cat{A}(D)
     \to \cat{B}(F^0D).$$
   \item\label{def:lax.doubly.indexed.functor.2} For every vertical map $j : D_1 \to D_2$ in $\cat{D}_1$, a natural
-    transformation 
+    transformation
 \[
 \begin{tikzcd}
   \cat{A}(D_1) \ar[d, "{\cat{A}(j)}"'] \ar[r, "F^{D_1}"] & \cat{B}(F^0D_1)
@@ -1552,7 +1552,7 @@ of the more general lax variety.
 \]
 We ask that $F^{\id_{D}} = \id$. We recall (from
     \cref{prop.transformation_as_square_in_cat}) that we may think of such a
-    natural transformation as a square 
+    natural transformation as a square
 \[
 \begin{tikzcd}[sep=tiny]
 \cat{A}(D_1) \ar[d, "F^{D_1}"'] \ar[rr, tick, equals] & & \cat{A}(D_1) \ar[d,
@@ -1576,22 +1576,22 @@ in $\Cat{Cat}$. We ask that $F^{\id_{D}} = \id$.
 This data is required to satisfy the following laws:
 \begin{itemize}
   \item (Vertical Lax Functoriality) For composable vertical maps $j : D_1 \to D_2$ and $k :
-    D_2 \to D_3$, 
+    D_2 \to D_3$,
 \[
-F^{\frac{j}{k}} = 
+F^{\frac{j}{k}} =
 \begin{tikzcd}
   \cat{A}(D_1) \ar[d, "{\cat{A}(j)}"'] \ar[r, "F^{D_1}"] & \cat{B}(F^0D_1)
 \ar[dl, Rightarrow, "F^j"']  \ar[d, "\cat{B}(F^0j)"]  \\
 \cat{A}(D_2) \ar[d, "{\cat{A}(k)}"']\ar[r,"F^{D_2}"] & \cat{B}(F^0D_2)\ar[d, "\cat{B}(F^0k)"] \ar[dl, Rightarrow, "F^k"'] \\
-\cat{A}(D_3) \ar[r,"F^{D_3}"']& \cat{B}(F^0D_3) 
+\cat{A}(D_3) \ar[r,"F^{D_3}"']& \cat{B}(F^0D_3)
 \end{tikzcd}
 \]
 This is, in terms of squares in $\Cat{Cat}$:
     $$F^{\frac{j}{k}} \coheq \left. \frac{F^j}{\cat{B}(F^0k)} \middle| \frac{\cat{A}(j)}{F^k} \right.$$
   \item (Horizontal functoriality) For composable horizontal arrows $f : D_1 \to
-    D_2$ and $g : D_2 \to D_3$, 
+    D_2$ and $g : D_2 \to D_3$,
 $$\frac{\mu^{\cat{A}}_{f, g}}{F^{f \mid g}} = \frac{F^f \mid
-  F^g}{\mu^{\cat{B}}_{F^0f, F^0g}}.$$ 
+  F^g}{\mu^{\cat{B}}_{F^0f, F^0g}}.$$
 \item (Functorial Interchange) For any square
 \[
 \begin{tikzcd}[sep=tiny]
@@ -1620,12 +1620,12 @@ to vertical maps $j : D_1 \to D_2$ in $\cat{D}_1$ are natural isomorphisms.
 \end{definition}
 
 The definition of doubly indexed functor involves a lot of data, but this is
-because it is a big collection of functoriality results. 
+because it is a big collection of functoriality results.
 
 Before getting to our functoriality theorem, we need to compose lax doubly indexed functors.
 \begin{definition}
 If $(F^0, F) : \cat{A} \to \cat{B}$ and $(G^0, G) : \cat{B} \to \cat{C}$ are two
-doubly indexed functors, we define their composite 
+doubly indexed functors, we define their composite
 \[
 (F^0, F) \then (G^0, G) \coloneqq (F^0 \then G^0, F \then G)
 \]
@@ -1637,13 +1637,13 @@ where $F \then G$ is defined by:
 \[
 (F \then G)^D = \frac{F^D}{G^{F^0 D}}.
 \]
-  \item For a vertical $j : D_1 \to D_2$, we define 
+  \item For a vertical $j : D_1 \to D_2$, we define
 \[
 \begin{tikzcd}
   \cat{A}(D_1) \ar[d, "{\cat{A}(j)}"'] \ar[r, "{ (F \then G) }^{D_1}"] & \cat{C}(G^0F^0D_1)
 \ar[dl, Rightarrow, "(F \then G)^j"']  \ar[d, "\cat{C}(G^0F^0j)"] \\
 \cat{A}(D_2) \ar[r,"(F \then G)^{D_2}"'] & \cat{C}(G^0F^0D_2)
-\end{tikzcd} \coloneqq 
+\end{tikzcd} \coloneqq
 \begin{tikzcd}
   \cat{A}(D_1) \ar[d, "{\cat{A}(j)}"'] \ar[r, "F^{D_1}"] & \cat{B}(F^0D_1)
 \ar[dl, Rightarrow, "F^j"']  \ar[d, "\cat{B}(F^0j)"] \ar[r, "G^{F^0D_1}"] & \cat{C}(G^0F^0D_1) \ar[d,
@@ -1652,7 +1652,7 @@ where $F \then G$ is defined by:
 \end{tikzcd}
 \]
 We note that by \cref{lemma.transformation_as_square_vertical}, this corresponds
-to the composite of squares: 
+to the composite of squares:
 \[
 (F \then G)^j \coheq \left. \frac{F^{D_1}}{G^{F^0 j}} \middle|
   \frac{F^j}{G^{F^0 D_2}} \right.
@@ -1720,7 +1720,7 @@ We may then calculate:
 \ar[r, tick] \ar[rd, "G^{F^0 g}", phantom]        & \bullet \ar[d] \\
 \bullet \ar[r, equals, tick]                                      & \bullet
 \ar[r, equals, tick]                                              & \bullet
-\ar[r, tick]                                                  & \bullet          
+\ar[r, tick]                                                  & \bullet
 \end{tikzcd}
        \coheq
 \begin{tikzcd}
@@ -1732,7 +1732,7 @@ We may then calculate:
 \arrow[r, tick] \arrow[rd, "G^{F^0 g}", phantom]             & \bullet \arrow[d] \arrow[r, equals, tick] \arrow[rd, "G^{F^0 D_3}", phantom] & \bullet \arrow[d] \\
 \bullet \arrow[r, equals, tick]                                      & \bullet
 \arrow[r, tick]                                                        & \bullet
-\arrow[r, equals, tick]                                              & \bullet          
+\arrow[r, equals, tick]                                              & \bullet
 \end{tikzcd}
         \]\[
         \coheq
@@ -1740,7 +1740,7 @@ We may then calculate:
 \bullet \arrow[r, tick] \arrow[d] \arrow[rd, "F^D", phantom]                      & \bullet \arrow[r, equals, tick] \arrow[d] \arrow[rd, "F^f", phantom] & \bullet \arrow[r, equals, tick] \arrow[d]                                    & \bullet \arrow[d] \\
 \bullet \arrow[d] \arrow[r, tick] \arrow[rd, "G^{F^0 f}", phantom]                & \bullet \arrow[d] \arrow[r, equals, tick]                            & {} \arrow[d] \arrow[r, "F^k", phantom]                         & \bullet \arrow[d] \\
 \bullet \arrow[d] \arrow[r, tick] \arrow[rd, "{\mbox{\small $\cat{C}(G^0F^0 \alpha)$} }", phantom] & \bullet \arrow[d] \arrow[r, "G^{F^0 k}", phantom]      & \bullet \arrow[d] \arrow[r, equals, tick] \arrow[rd, "G^{F^0 D_3}", phantom] & \bullet \arrow[d] \\
-\bullet \arrow[r, tick]                                                           & \bullet \arrow[r, equals, tick]                                      & \bullet \arrow[r, equals, tick]                                              & \bullet          
+\bullet \arrow[r, tick]                                                           & \bullet \arrow[r, equals, tick]                                      & \bullet \arrow[r, equals, tick]                                              & \bullet
 \end{tikzcd}
 \]
 \end{itemize}
@@ -1754,13 +1754,13 @@ Now that we have a category of doubly indexed categories, we can state the funct
 We will spend the rest of this section proving this theorem.
 \begin{proposition}\label{prop.vertical_slice_action}
   Let $(v_0, v_1, v) : F_1 \to F_2$ be a map in $\Cat{DblFun}$. Then we have a
-  doubly indexed functor 
+  doubly indexed functor
   \[
 \begin{tikzcd}
 \cat{D}_{01} \arrow[dd, "{v_1}"'] \arrow[rrd, "{ \sigma F_1}", bend left] & {}
 \arrow[dd, "{\sigma v}"', Rightarrow] &      \\
   &   & \Cat{Cat} \\
-\cat{D}_{11} \arrow[rru, bend right, "{\sigma F_2}"']      & {}   &     
+\cat{D}_{11} \arrow[rru, bend right, "{\sigma F_2}"']      & {}   &
 \end{tikzcd}
   \]
 \end{proposition}
@@ -1784,12 +1784,12 @@ We define $\sigma v$ as follows:
           v_1D \ar[rr, equals] & & v_1D
         \end{tikzcd}
     \]
-    In short: 
+    In short:
 \[
   \sigma v^D(f, \alpha) \coloneqq \left( v_0f,\, \frac{v_f}{v_1 \alpha} \right).
 \]
 \item For any vertical map $j : D_1 \to D_2$ in $\cat{D}_{01}$, we will show
-  that 
+  that
 $$\sigma F_2(v_1 j) \circ \sigma v^{D_1} = \sigma v^{D_2} \circ \sigma F_1 (j)$$
 so that we may take $\sigma v^j$ to be the identity natural transformation.
 \begin{align*}
@@ -1800,7 +1800,7 @@ so that we may take $\sigma v^j$ to be the identity natural transformation.
 &= \sigma v^{D_2} \circ \sigma F_1 (j) (f, \alpha)
 \end{align*}
 
-\item For a horizontal map $\varphi : D_1 \to D_2$, we give the square 
+\item For a horizontal map $\varphi : D_1 \to D_2$, we give the square
 \[
 \begin{tikzcd}[sep=tiny]
 \sigma F_1(D_1) \ar[rr, tick,"\sigma F_1(f)"] \ar[dd, "\sigma v^{D_1}"'] & &
@@ -1809,7 +1809,7 @@ so that we may take $\sigma v^j$ to be the identity natural transformation.
 \sigma F_2(v_1 D_2) \ar[rr, tick, "\sigma F_2 (v_1 f)"'] &  &\sigma F_2(v_1 D_2)
 \end{tikzcd}
 \]
-defined by 
+defined by
     \[
         \begin{tikzcd}[sep=tiny]
           F_1A_1 \ar[dd, "{ j_1 }"'] \ar[rr, "{ F_1f }"] & & F_1A_2 \ar[dd, "{ j_2 }"] \\
@@ -1854,7 +1854,7 @@ D_3 \ar[rr, "\varphi_2"'] & & D_4
 \]
 
 Since $\sigma v^{j_1}$ and $\sigma v^{j_2}$ are identities, we just need to show
-that 
+that
 $$\frac{\sigma F_1 (\beta)}{\sigma v^{\varphi_2}} = \frac{\sigma
   v^{\varphi_1}}{\sigma F_2 (v_1 \beta)}.$$
 To that end, we calculate:
@@ -1881,13 +1881,13 @@ $$(v_1 \then w_1,\, \sigma(v \ast w)) = (v_1, \sigma v) \then (w_1, \sigma w).$$
 The first components of these pairs are equal by definition, so we just need to
 show that $\sigma(v \ast w) = \sigma v \then \sigma w$.
 \begin{itemize}
-\item This calculation is the same as for a general horizontal. 
+\item This calculation is the same as for a general horizontal.
   \item For a vertical $j : D_1 \to D_2$, we calculate, we note that both sides
     are the same identity natural transformation.
   \item For a horizontal $\varphi : D_1 \to D_2$, we calculate:
   \begin{align*}
 \sigma(v \ast w)^{\varphi}(f, \alpha) &\coloneqq \left( w_0v_0f, \frac{(v \ast w)_f}{w_1
-    v_1 \alpha} \right)  \\ 
+    v_1 \alpha} \right)  \\
     &= \left( w_0 v_0 f, {\begin{tabular}{c} $w_{v_0 f}$\\ \hline $w_1 v_f$ \\ \hline $w_1 v_1 \alpha$ \end{tabular}} \right) \\
                               &= \left( w_0v_0 f, \frac{w_{v_0 f}}{w_1 \left( \frac{v_f}{v_1 \alpha} \right)} \right) \\
                               &= \sigma w^{v_1 \varphi} \left( v_0 f, \frac{v_f}{v_1 \alpha} \right) \\
@@ -1925,7 +1925,7 @@ in the cartesian categories of topological spaces or differentiable manifolds.
   a cartesian category $\cat{C}$. As we saw in \cref{Chapter.2}, by varying the
   monad $M$ we can achieve a huge variety of flavors of non-determinism. This
   includes possibilistic and stochastic non-determinism, but also other variants
-  like systems with cost-sensitive transitions and (\cref{def.system_with_costs}). 
+  like systems with cost-sensitive transitions and (\cref{def.system_with_costs}).
 \end{itemize}
 These are just large classes of systems theories that have been easy to describe in
 generality. Different particular situations will require different particular
@@ -1947,7 +1947,7 @@ systems theories is of deterministic systems into non-deterministic systems of a
 There are also more drastic ways to change systems theories. Any map of commutative
 monads $\phi : M \to N$ gives us a way of changing an $M$-system into an
 $N$-system, changing the flavor of non-determinism. We may also
-\emph{approximate} a differential system by a deterministic system. 
+\emph{approximate} a differential system by a deterministic system.
 
 These are all ways of \emph{changing our systems theories}, and it is these changes of
 systems theories that we will attend to in this section. We will begin by defining a \emph{change of systems theory}, which will give us a
@@ -1970,7 +1970,7 @@ questions about what it means to be a dynamical system.
   \item Can the kinds of input a
     system takes in depend on what it's putting out, and how do they depend on it?
   \item What sorts of changes are possible in a given state?
-  \item What does it mean for states to change. 
+  \item What does it mean for states to change.
   \item How should the way the state changes vary with the input?
   \end{enumerate}
 \end{informal}
@@ -1991,13 +1991,13 @@ Now, we can't just fiddle arbitrarily with the answers to our questions; they
 all have to hang together in a coherent way. The formal definition can guide us
 to what sort of changes we can make that cohere in just this way. For example, we can change
 what it means to be a state, how the output varies with the state, and the way
-the inputs vary by changing the indexed category $\cat{A}$. 
+the inputs vary by changing the indexed category $\cat{A}$.
 
 Suppose that $(\cat{A}, T_1)$ and $(\cat{B}, T_2)$ are dynamical system
 systems theories. If we have an indexed functor (\cref{def.indexed_functor}) $(F, \overline{F}) :
 \cat{A} \to \cat{B}$ between indexed categories, then from a dynamical system
 $\lens{\update{S}}{\expose{S}} : \lens{T_1\State{S}}{\State{S}} \fromto
-\lens{\In{S}}{\Out{S}}$ we can get a lens 
+\lens{\In{S}}{\Out{S}}$ we can get a lens
 \[
 \lens{\overline{F}\update{S}}{F\expose{S}} : \lens{\overline{F}T_1
   \State{S}}{F\State{S}} \fromto \lens{\overline{F}\In{S}}{F\Out{S}}
@@ -2008,7 +2008,7 @@ output varies with state ($F\expose{S}$), and how the inputs vary with output
 This is not quite a dynamical system, however, since since its domain is not
 $\lens{T_2 F\State{S}}{F\State{S}}$. In order for us to get a $(\cat{B},
 T_2)$-system, we need to say how to change the what it means for a state to
-change. 
+change.
 
 The most direct way to produce a $(\cat{B}, T_2)$-system would be to compose
 with a map $\phi : \overline{F}T_1 \State{S} \to T_2 F\State{S}$ which
@@ -2029,7 +2029,7 @@ We therefore arrive at the following formal defintion of change of systems theor
   \Cat{Cat}, T_2)$ be theories of dynamical systems. A \emph{change of systems theories}
   $((F, \overline{F}), \phi) : (\cat{A}, T_1) \to (\cat{B}, T_2)$ consists of:
 \begin{itemize}
-  \item An indexed functor $(F, \overline{F}) : \cat{A} \to \cat{B}$. 
+  \item An indexed functor $(F, \overline{F}) : \cat{A} \to \cat{B}$.
   \item A \emph{transformation of sections} $\phi : \overline{F}T_1 \to T_2 F$,
     which consists of a family of maps $\phi_C : \overline{F}T_1 C \to T_2 FC$
     for each $C$ in $C$, satisfying the following naturality condition:
@@ -2044,7 +2044,7 @@ We therefore arrive at the following formal defintion of change of systems theor
 \end{equation}
 \end{itemize}
 
-\end{itemize} 
+\end{itemize}
 \end{definition}
 
 We can package the transformation of sections into a natural transformation,
@@ -2054,7 +2054,7 @@ The data of a transformation of sections as in \cref{def.change_of_doctrine} is 
 of a natural transformation $\lens{\phi}{\id} : \lens{\overline{F}}{F} \circ T_1
     \Rightarrow \lens{T_2(-)}{(-)} \circ F$ which acts as the identity on $F$ on
     its bottom component. We can express this condition with the following equation on
-    diagrams of natural transformations: 
+    diagrams of natural transformations:
     \[
 \begin{tikzcd}
   \cat{C} \ar[dd,"{\lens{T_1(-)}{(-)}}"'] \ar[r, "F"] & \cat{D} \ar[dd,
@@ -2064,7 +2064,7 @@ of a natural transformation $\lens{\phi}{\id} : \lens{\overline{F}}{F} \circ T_1
 Rightarrow, "{\lens{\phi}{\id}}" near start] \ar[d,"\pi"'] & \int^{D :
   \cat{D}} \cat{B}(D) \ar[d, "\pi"]\\
 \cat{C} \ar[r, "F"'] & \cat{D}
-\end{tikzcd} 
+\end{tikzcd}
 =
 \begin{tikzcd}
   \cat{C} \ar[dd, equals] \ar[r, "F"] & \cat{D} \ar[dd, equals] \\
@@ -2118,7 +2118,7 @@ transformation of sections to be the identity:
   \begin{tikzcd}
 \cat{C} \ar[r, equals]\ar[d,"T^M"'] & \cat{C}  \ar[d,"T^N"]\\
   \int^{C : \cat{C}}\smctx{C}^M \ar[r, "{\littlelens{\phi_{\ast}}{\id}}"']  & \int^{C : \cat{C}}
-  \smctx{C}^N  
+  \smctx{C}^N
   \end{tikzcd}
 \]
 Let $f : C' \to C$ be a map in $\cat{C}$. Then $T^Mf$ is $\pi_2 \then f \then \eta^M
@@ -2128,7 +2128,7 @@ Let $f : C' \to C$ be a map in $\cat{C}$. Then $T^Mf$ is $\pi_2 \then f \then \e
 \then \phi_C = \eta^N$. So the square commutes and we can take the
 transformation of sections to be the identity.
 \end{proof}
-  
+
 \begin{example}\label{ex:commutative.monad.change.doctrine.det}
   For any commutative monad $M : \cat{C} \to \cat{C}$, there is a unique commutative monad map from
   the identity monad $\id_{\cat{C}}$. Therefore,
@@ -2155,18 +2155,18 @@ systems theory.
 Let $F : \cat{C} \to \cat{D}$ be a cartesian functor between cartesian
 categories. Then there is a change of systems theory
 \[
-((F, \overline{F}), \id) : \determ_{\cat{C}} \to \determ_{\cat{D}} 
+((F, \overline{F}), \id) : \determ_{\cat{C}} \to \determ_{\cat{D}}
 \]
 from the deterministic systems theoy in $\cat{C}$ to the cartesian systems theory in $\cat{D}$.
 \end{proposition}
 \begin{proof}
 We need to construct the indexed functor $(F, \overline{F})$, and then prove
-that the square 
+that the square
 \[
   \begin{tikzcd}
 \cat{C} \ar[r, "F"]\ar[d,"T^{\cat{C}}"'] & \cat{C}  \ar[d,"T^{\cat{D}}"]\\
   \int^{C : \cat{C}}\smctx{C} \ar[r, "{\littlelens{\overline{F}}{F}}"']  & \int^{D : \cat{D}}
-  \smctx{D}  
+  \smctx{D}
   \end{tikzcd}
 \]
 commutes, so that we may take the transformation of sections to be the identity.
@@ -2246,7 +2246,7 @@ which was the definition for $\mathcal{E}_{\varepsilon}u$ in \cref{eqn:euler.met
 
   All that we need to show is that $\phi$ is a
   transformation of sections. This means that the following square commutes for
-  any \emph{affine} $f : \rr^n \to \rr^m$: 
+  any \emph{affine} $f : \rr^n \to \rr^m$:
   \[
   \begin{tikzcd}
     \lens{\rr^n}{\rr^n} \ar[r, shift left, "{\lens{\pi_2 \then f}{f}}"] \ar[r, shift right] \ar[d, shift right,
@@ -2258,7 +2258,7 @@ which was the definition for $\mathcal{E}_{\varepsilon}u$ in \cref{eqn:euler.met
   \end{tikzcd}
   \]
   The bottom component of this square commutes trivially. The top component
-  comes down to the equation 
+  comes down to the equation
   \begin{equation}\label{eqn:euler.affine.map}
 f(s + \varepsilon \cdot v) = f(s) + \varepsilon Tf(s, v)
 \end{equation}
@@ -2272,7 +2272,7 @@ $f$ is affine for this square to commute.
 \begin{remark}
 It would be very interesting to have a theory which allowed us to speak of
 ``approximate'' changes of systems theory. If we plug a function $f : \rr^n \to \rr^m$
-into the above formulas for the Euler method, then we find that \cref{eqn:euler.affine.map} 
+into the above formulas for the Euler method, then we find that \cref{eqn:euler.affine.map}
 only holds up to $O(\varepsilon^2)$. For affine functions, this means that it does
 hold, which is why we restrict to affine functions. But it would be interesting
 to have a theory which could account for how these approximate equalities
@@ -2283,7 +2283,7 @@ affected the various compositionality results all the way down.
 
 In the upcoming \cref{sec:functoriality.of.sys}, we will see what knowing that
 the Euler method is a change of systems theory lets us conclude about the behaviors
-and compositionality of Euler method approximations. 
+and compositionality of Euler method approximations.
 
 Considering systems theories together with their changes gives us a category
 $\Cat{Theory}$.
@@ -2312,7 +2312,7 @@ In terms of natural transformations (see
   \begin{tikzcd}[row sep = huge]
     \cat{C}_1 \ar[r, "F_1"]\ar[d, "T_1"'] & \cat{C}_2\ar[r, "F_2"]\ar[d, "T_2"] & \cat{C}_3\ar[d, "T_3"] \\
     \int^{C : \cat{C}_1}\cat{A}_1(C)\ar[r, "{\lens{\overline{F}_1}{F_1}}"']
-    \ar[ur, Rightarrow, "{\littlelens{\phi_1}{\id}}"] &\int^{C : \cat{C}_2}\cat{A}_2(C)\ar[r, "{\lens{\overline{F}_2}{F_2}}"']\ar[ur, Rightarrow, "{\littlelens{\phi_2}{\id}}"] &\int^{C : \cat{C}_3}\cat{A}_3(C) 
+    \ar[ur, Rightarrow, "{\littlelens{\phi_1}{\id}}"] &\int^{C : \cat{C}_2}\cat{A}_2(C)\ar[r, "{\lens{\overline{F}_2}{F_2}}"']\ar[ur, Rightarrow, "{\littlelens{\phi_2}{\id}}"] &\int^{C : \cat{C}_3}\cat{A}_3(C)
   \end{tikzcd}
 \]
 \end{definition}
@@ -2332,7 +2332,7 @@ let
 \]
 be a $(\cat{A}, T_1)$-system. Then we have a $(\cat{B}, T_2)$-system $\mathbb{F}
 \Sys{S}$ defined to
-be the composite 
+be the composite
 \[
 \lens{\phi}{\id} \then \lens{\overline{F}\update{S}}{F\expose{S}} : \lens{T_2F\State{S}}{F\State{S}} \fromto \lens{\overline{F}\In{S}}{F\Out{S}}.
 \]
@@ -2344,12 +2344,12 @@ The goal of this section will be to provide a number of compositionality results
 concerning how changing the theory of a system relates to wiring systems
 together and to behaviors. Specifically, we will prove the following theorem:
 \begin{theorem}\label{thm.functoriality_system_construction}
-  There is a functor 
+  There is a functor
 \[
 \Cat{Sys} : \Cat{Theory} \to \Cat{DblIx}
 \]
 sending a theory of dynamical systems $\dd$ to the doubly indexed category
-$\Cat{Sys}_{\dd}$ (\cref{def.doubly_indexed_cat_systems}) of systems in it. 
+$\Cat{Sys}_{\dd}$ (\cref{def.doubly_indexed_cat_systems}) of systems in it.
 
 This functor sends a change of systems theory $\mathbb{F} : \dd_1 \to \dd_2$ to the doubly indexed functor $\Cat{Sys}(\dd_1)
 \to \Cat{Sys}(\dd_2)$ which sends a $\dd_1$-system $\Sys{S}$ to the
@@ -2360,7 +2360,7 @@ We will prove this theorem using the vertical slice construction. Recall that
 the doubly indexed category $\Cat{Sys}(\dd)$ is the vertical slice construction
 of the section $T$ considered as a double functor $(hT : h\cat{C} \to
 \Cat{Arena}_{\dd})$ (\cref{prop.sys_is_vertical_slice}). This means that if we
-can show that the assignment 
+can show that the assignment
 \[
 (\cat{A} : \cat{C}\op \to \Cat{Cat}, T) \mapsto (hT : h\cat{C} \to
 \Cat{Arena}_{(\cat{A}, T)})
@@ -2370,7 +2370,7 @@ the vertical slice construction $\sigma : \Cat{DblFun} \to \Cat{DblIx}$. This is
 what we will focus on.
 
 \begin{lemma}
-The assignment 
+The assignment
 \[
 (\cat{A} : \cat{C}\op \to \Cat{Cat}, T) \mapsto (hT : h\cat{C} \to
 \Cat{Arena}_{(\cat{A}, T)})
@@ -2477,13 +2477,13 @@ Then, by \cref{prop.vertical_slice_action}, we get a doubly indexed functor
   \Cat{Sys}_{\dd_1}}", bend left] & {}
 \arrow[dd, "{\sigma \littlelens{\phi}{\id}}"', Rightarrow] &      \\
   &   & \Cat{Cat} \\
-\Cat{Arena}_{\dd_2} \arrow[rru, bend right, "{\Cat{Sys}_{\dd_2}}"']      & {}   &     
+\Cat{Arena}_{\dd_2} \arrow[rru, bend right, "{\Cat{Sys}_{\dd_2}}"']      & {}   &
 \end{tikzcd}
 \]
 In this diagram, $\sigma\littlelens{\phi}{\id}$ is defined as follows:
 \begin{itemize}
 \item (\cref{def.lax_doubly_indexed_functor}: \cref{def:lax.doubly.indexed.functor.1}) For a $\dd_1$-arena $\lens{A^-}{A^+}$,
-  we have the functor 
+  we have the functor
   \[
     \sigma\littlelens{\phi}{\id}^{\littlelens{A^-}{A^+}} :
     \Cat{Sys}_{\dd_1}\littlelens{A^-}{A^+} \to \Cat{Sys}_{\dd_2}\littlelens{\overline{F}A^-}{FA^+}.
@@ -2519,10 +2519,10 @@ given by sending a simulation $\psi : \Sys{T} \to \Sys{S}$ to the composite:
   \begin{equation}
   \begin{tikzcd}
     \Cat{Sys}_{\dd_1}\littlelens{A^{-}}{A^+} \ar[d, "{\Cat{Sys}_{\dd_1}\littlelens{j^{\sharp}}{j}}"'] \ar[r, "{\sigma\littlelens{\phi}{\id}^{\littlelens{A^-}{A^+}}}"] & \Cat{Sys}_{\dd_2}\littlelens{\overline{F}A^{-}}{FA^+}  \ar[d, "{\Cat{Sys}_{\dd_2}\littlelens{\overline{F}j^{\sharp}}{Fj}}"]\\
-    \Cat{Sys}_{\dd_1}\littlelens{B^{-}}{B^+} \ar[r, "{\sigma\littlelens{\phi}{\id}^{\littlelens{B^-}{B^+}}}"'] & \Cat{Sys}_{\dd_2}\littlelens{\overline{F}B^{-}}{FB^+} 
+    \Cat{Sys}_{\dd_1}\littlelens{B^{-}}{B^+} \ar[r, "{\sigma\littlelens{\phi}{\id}^{\littlelens{B^-}{B^+}}}"'] & \Cat{Sys}_{\dd_2}\littlelens{\overline{F}B^{-}}{FB^+}
   \end{tikzcd}
   \end{equation}
-  
+
 This tells us that changing systems theories and then wiring together systems gives the
 same result as wiring together the systems first and then changing systems theories.
 
@@ -2570,7 +2570,7 @@ $\psi$ is a $\lens{f_{\flat}}{f}$-behavior then $F\psi$ is a $\lens{\overline{F}
 \end{itemize}
 
 \begin{example}
-For Euler approximatation 
+For Euler approximatation
   \[
 \mathcal{E}_{\varepsilon} : \eucdiff_{|\textbf{Aff}} \to \determ_{\Cat{Euc}},
   \]
@@ -2618,7 +2618,7 @@ $\varphi$ and $\lens{f_{\flat}}{f}$ in the appropriate double category of arenas
   one and then wired together the result with the same wiring pattern.
 
 
-  
+
 %writehere
 \end{example}
 
