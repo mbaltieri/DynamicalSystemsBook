@@ -18,7 +18,7 @@ Here's a basic fact of life: \emph{things change}. And how things change most
 often depends on how they currently are. This is the fundamental idea underlying all the various notions of \emph{dynamical
   system} that we will see in this book.
 
-\begin{informal}\label{inf.dynam_sys}
+\begin{informal}\label{inf.dynam_sys2}
   A \emph{dynamical system} consists of:
   \begin{itemize}
   \item a notion of how things can be, called the \emph{states}, and
@@ -26,7 +26,7 @@ often depends on how they currently are. This is the fundamental idea underlying
   \end{itemize}
   The dynamics of a system might also depend on some free \emph{parameters} or \emph{inputs} that are imported from the environment, and
   we will often be interested in some particular \emph{variables} of the
-  state that are \emph{exposed} or \emph{output} to the environment. 
+  state that are \emph{exposed} or \emph{output} to the environment.
 \end{informal}
 
 You and I are big, complicated dynamical systems. Our bodies and minds are in
@@ -39,7 +39,7 @@ my face. But not all of me is exposed in that way --- some things just go on in
 my head.
 
 This is the basic model of a dynamical system we will be working with in this
-book.\footnote{At least until \cref{Chapter.6}, where we will encounter other \emph{doctrines} of dynamical systems.} But to make the above informal definition precise, we need to answer
+book.\footnote{At least until \cref{chapter.6}, where we will encounter other \emph{doctrines} of dynamical systems.} But to make the above informal definition precise, we need to answer
 a number of questions:
 \begin{itemize}
   \item What should a state be, really? Do we just have an abstract set of
@@ -54,7 +54,7 @@ a number of questions:
     tending to change, but not where it will end up?
   \item Do we always take in the same sort of parameters, or does it depend on
     how our system is placed in its environment? Should the dynamics vary
-    continuously (or linearly, or some other way) in the choice of parameters? 
+    continuously (or linearly, or some other way) in the choice of parameters?
 \end{itemize}
 
 Different people have decided on different answers to these questions for
@@ -76,7 +76,7 @@ questions:
 
 We will call a way of answering these questions the \emph{theory} of dynamical
 systems we are working in.
-\begin{informal}\label{informal.doctrine}
+\begin{informal}\label{informal.doctrine2}
   A \emph{theory} of dynamical systems --- or a \emph{systems theory} for short --- is a particular way to answer the following
   questions about what it means to be a dynamical system:
   \begin{itemize}
@@ -86,7 +86,7 @@ systems we are working in.
   \item Can the kinds of input a
     system takes in depend on what it's putting out, and how do they depend on it?
   \item What sorts of changes are possible in a given state?
-  \item What does it mean for states to change. 
+  \item What does it mean for states to change.
   \item How should the way the state changes vary with the input?
   \end{itemize}
 \end{informal}
@@ -134,7 +134,7 @@ systems \emph{composition}.
 Functions can be composed by plugging outputs into inputs, and dynamical systems
 can be composed by plugging in the variables of the states of some into the
 parameters of others.
-  
+
 This book is all about composing dynamical systems. Because of this, we will use
 the abstract language of composition: \emph{category theory}.
 \begin{informal}
@@ -176,7 +176,7 @@ We will be using cartesian categories quite a bit in the first few chapters.
   \emph{cartesian} if it preserves products and terminal objects, i.e.\ the
   map $(F\pi_A,\, F\pi_B) : F(A \times B) \to FA \times FB$ is an isomorphism
   for all $A$ and $B$, and the terminal morphism $F\ord{1} \to \ord{1}$ is an
-  isomorphism. 
+  isomorphism.
 \end{definition}
 
 We will also use some more advanced category theory, like indexed
@@ -250,7 +250,7 @@ refer to the whole system at once, we can box it up and draw it like this:
 \begin{equation}\label{eqn.clock_system_box}
 \begin{tikzpicture}[oriented WD, every fit/.style={inner xsep=\bbx, inner ysep=\bby}, bbx = 1cm, bby =.5cm, bb min width=1cm, bb port length=4pt, bb port sep=1, baseline=(X.center)]
 	\node[bb={0}{1}, fill=blue!10] (X) {$\Sys{Clock}$};
-	\draw[label] 
+	\draw[label]
 		node [right=2pt of X_out1] {$\Set{Hour}$}
 		;
 \end{tikzpicture}
@@ -295,7 +295,7 @@ dynamics of the meridian system. We can draw the meridian system as a box like t
 \begin{equation}\label{eqn.am_pm_system_box}
 \begin{tikzpicture}[oriented WD, every fit/.style={inner xsep=\bbx, inner ysep=\bby}, bbx = 1cm, bby =.5cm, bb min width=1cm, bb port length=4pt, bb port sep=1, baseline=(X.center)]
 	\node[bb={1}{1}, fill=blue!10] (X) {$\Sys{Meridian}$};
-	\draw[label] 
+	\draw[label]
 		node [left=2pt of X_in1] {$\Set{Hour}$}
 		node [right=2pt of X_out1] {$\Set{a.m./p.m.}$}
 		;
@@ -320,7 +320,7 @@ our bare clock \eqref{eqn.clock_system_box} and the $\const{a.m.}/\const{p.m.}$ 
   \draw let \p1=(X1.south west), \p2=(X2.north east), \n1=\bbportlen, \n2=\bby in
     (X2_out1) to[in=0] (\x2 + \n1, \y2 + \n2) -- (\x1 - \n1, \y2 + \n2) to[out=180] (X1_in1);
   \draw (X2_out1) to (Y_out2);
-	\draw[label] 
+	\draw[label]
 		node [right=2pt of Y_out1] {$\Set{a.m./p.m.}$}
 		node [right=2pt of Y_out2] {$\Set{Hour}$}
 		;
@@ -352,14 +352,14 @@ The diner's dynamics are then
   \fun{dinerDynamics} : \Set{DinerState} \times \Set{HoursWithDisplay} &\to \Set{DinerState} \\
   (\const{open}, (10, \const{p.m.})) &\mapsto \const{closed} \\
   (\const{closed}, (7, \const{a.m.})) &\mapsto \const{open} \\
-  (s, (t, m)) &\mapsto s \quad\mbox{otherwise.} 
+  (s, (t, m)) &\mapsto s \quad\mbox{otherwise.}
 \end{align*}
 
 Again, we can represent the diner by this box:
 \begin{equation}\label{eqn.diner_system_box}
 \begin{tikzpicture}[oriented WD, every fit/.style={inner xsep=\bbx, inner ysep=\bby}, bbx = 1cm, bby =.5cm, bb min width=1cm, bb port length=4pt, bb port sep=1, baseline=(X.center)]
 	\node[bb={2}{1}, fill=blue!10] (X) {$\Sys{Diner}$};
-	\draw[label] 
+	\draw[label]
 		node [left=2pt of X_in1] {$\Set{a.m./p.m.}$}
 		node [left=2pt of X_in2] {$\Set{Hour}$}
 		node [right=2pt of X_out1] {$\Set{DinerState}$}
@@ -368,7 +368,7 @@ Again, we can represent the diner by this box:
 \end{equation}
 This time, we have two wires coming in, corresponding to the two parameters we
 need for the diner system: the hour and the
-meridien. 
+meridien.
 
 Assuming that the diner has a clock on its wall which it uses to decide whether
 to open or close, the full diner system would be given by wiring the clock with display into
@@ -377,7 +377,7 @@ those input wires:
 \begin{tikzpicture}[oriented WD, every fit/.style={inner xsep=\bbx, inner ysep=\bby}, bbx = 1cm, bby =.5cm, bb min width=1cm, bb port length=4pt, bb port sep=1, baseline=(Outer.center)]
   \node[bb={0}{2}, fill=blue!10](Clock) {$\Sys{ClockWithDisplay}$};
   \node[bb={2}{1}, fill=blue!10, right=of Clock] (Diner) {$\Sys{Diner}$};
-  
+
   \node[bb={0}{1}, fit={(Clock) (Diner)}] (Outer) {};
 
   \draw (Clock_out1) to (Diner_in1);
@@ -400,7 +400,7 @@ made out of a clock wired to a display:
     (X2_out1) to[in=0] (\x2 + \n1, \y2 + \n2) -- (\x1 - \n1, \y2 + \n2) to[out=180] (X1_in1);
   \draw (X2_out1) to (Clock_out2);
   \node[bb={2}{1}, fill=blue!10, right=of Clock] (Diner) {$\Sys{Diner}$};
-  
+
   \node[bb={0}{1}, fit={(Clock) (Diner)}] (Outer) {};
 
   \draw (Clock_out1) to (Diner_in1);
@@ -473,10 +473,10 @@ mysterious system transitions to when input the symbol $i$ in state $s$:
   \begin{tabular}{|c|c|c|c|c|c|c|}
     \hline
      & 1 & 2 & 3 & 4 & 5 & 6 \\\hline
-    a & (-1, b):1 & (1, a):1 & (-1, b):3  & (1, b):2 & (-1, b):6 & (-1, b):4 \\\hline     
+    a & (-1, b):1 & (1, a):1 & (-1, b):3  & (1, b):2 & (-1, b):6 & (-1, b):4 \\\hline
    b & (-1, a):1 & (1, a):2 & (-1, b):5  & (1, a):4 & (1, a):6 & (1, a):5 \\\hline
-   c & (1, d):2 & (1, d):2 & (-1, c):5 & (1,d):4 & (1, c):5 & (1, a):1 \\\hline     
-   d & (-1, c):1 & (1, a):5 & (-1, c):3 & (1,d):5 & (-1, b):3 & end \\\hline     
+   c & (1, d):2 & (1, d):2 & (-1, c):5 & (1,d):4 & (1, c):5 & (1, a):1 \\\hline
+   d & (-1, c):1 & (1, a):5 & (-1, c):3 & (1,d):5 & (-1, b):3 & end \\\hline
   \end{tabular}
 \end{equation}
 The $\text{end}$ state always transitions to itself. Mysterious indeed. But when we wire the two together, magic happens!
@@ -485,7 +485,7 @@ The $\text{end}$ state always transitions to itself. Mysterious indeed. But when
 \begin{tikzpicture}[oriented WD, every fit/.style={inner xsep=\bbx, inner ysep=\bby}, bbx = 1cm, bby =.5cm, bb min width=1cm, bb port length=2pt, bb port sep=1, baseline=(Outer.center)]
   \node[bb={1}{2}, fill=blue!10](Box) {$\Sys{Mystery Box}$};
   \node[bb={2}{2}, fill=blue!10, right=of Box] (Tape) {$\Sys{Tape Machine}$};
-  
+
   \node[bb={0}{0}, fit={($(Tape.south east) + (0, -2)$) ($(Box.north west) + (0, 1)$)}] (Outer) {};
   \node[above=0pt of Outer.south] (Label) {$\Sys{Universal Turing Machine}$};
 
@@ -499,17 +499,17 @@ The $\text{end}$ state always transitions to itself. Mysterious indeed. But when
     (Tape_out2) to[in=0] (\x1 + \n1, \y1 - \n2 - 1) -- (\x2 - \n1, \y2 - \n2 - 1) to[out=180] (Box_in1);
 \end{tikzpicture}
 \end{equation}
-This is a universal Turing machine, i.e.\ when we encode everything into this strange alphabet, it is capable of arbitrarily complex calculation! 
+This is a universal Turing machine, i.e.\ when we encode everything into this strange alphabet, it is capable of arbitrarily complex calculation!
 \slogan{Even simple systems can
 have very interesting behavior\\ when plugged in to the right environment.}
 
 %%
 %% :CUSTOM_ID:cite-this.turing_machine
-%% 
+%%
 That's a lot of informal definitions, we are ready for something precise:
 \begin{definition}\label{def.deterministic_system}
-  A \emph{deterministic system} $\Sys{S}$, also written as 
-  $$\lens{\update{S}}{\expose{S}} : \lens{\State{S}}{\State{S}} \leftrightarrows \lens{\In{S}}{\Out{S}},$$ 
+  A \emph{deterministic system} $\Sys{S}$, also written as
+  $$\lens{\update{S}}{\expose{S}} : \lens{\State{S}}{\State{S}} \leftrightarrows \lens{\In{S}}{\Out{S}},$$
   consists of:
   \begin{itemize}
     \item a set $\State{S}$ of \emph{states};
@@ -564,7 +564,7 @@ have have used the cartesian category $\Cat{Set}$ of sets.
   of ``incoming'' and ``outgoing'' wires are ways we think about the circuit in
   design terms. Circuits aren't actually directed in this way. We'll think about
 undirected notions of system in \cref{chapter.2}.} The state then describes the
-state of all the internal wires (and capacitors, etc.) in the circuit. We would wire up these systems by literally wiring them together. 
+state of all the internal wires (and capacitors, etc.) in the circuit. We would wire up these systems by literally wiring them together.
 
 \jaz{I would like to add an example of an implementation of a Moore machine into
   a circuit.}
@@ -635,7 +635,7 @@ entirely as a \emph{transition diagram}:
 Note that every node has an orange and a green arrow emanating from it, but that there are no rules on how many arrows point to it.
 
 This diagram describes the following system $\Sys{S}$:
-  $$\lens{\update{S}}{\expose{S}} : \lens{\{1, 2, 3\}}{\{1, 2, 3\}} \leftrightarrows \lens{\{{\color{dgreen} \const{green},\, {\color{orange} \const{orange}}}\}}{\{a, b\}}.$$ 
+  $$\lens{\update{S}}{\expose{S}} : \lens{\{1, 2, 3\}}{\{1, 2, 3\}} \leftrightarrows \lens{\{{\color{dgreen} \const{green},\, {\color{orange} \const{orange}}}\}}{\{a, b\}}.$$
 That is, we have
 \begin{itemize}
 \item $\State{S} = \{1, 2, 3\}$.
@@ -722,7 +722,7 @@ following wiring diagram:
 \begin{tikzpicture}[oriented WD, every fit/.style={inner xsep=\bbx, inner ysep=\bby}, bbx = 1cm, bby =.5cm, bb min width=1cm, bb port length=2pt, bb port sep=1, baseline=(Outer.center)]
   \node[bb={1}{1}, fill=blue!10](Box) {$\Sys{Agent}$};
   \node[bb={1}{1}, fill=blue!10, right=of Box] (Tape) {$\Sys{Environment}$};
-  
+
   \node[bb={0}{0}, fit={($(Tape.south east) + (0, -2)$) ($(Box.north west) + (0, 1)$)}] (Outer) {};
   \node[above=0pt of Outer.south] (Label) {$\Sys{Closed\ Agent/Environment\ Model}$};
 
@@ -744,7 +744,7 @@ What would happen to a system $\Sys{S}$ if its set of parameters or output value
 	\item Suppose $\In{S}=\varnothing$. Explain the content of a deterministic system \[\lens{\update{S}}{\expose{S}}\colon\lens{\State{S}}{\State{S}}\fromto\lens{\varnothing}{\{*\}}.\]
 	\item Suppose $\Out{S}=\varnothing$. Explain the content of a deterministic system \[\lens{\update{S}}{\expose{S}}\colon\lens{\State{S}}{\State{S}}\fromto\lens{\{*\}}{\varnothing}.
 	\qedhere
-\]	
+\]
 \end{enumerate}
 \end{exercise}
 
@@ -778,7 +778,7 @@ where $r \in \rr$ is the population of rabbits (considered as a real number for
 convenience), and the rates $\const{b}_{\Sys{Rabbits}}$ and
 $\const{d}_{\Sys{Rabbits}}$. The state of our system of $\Sys{Rabbits}$ is the current population of rabbits,
 so $\State{Rabbits} = \rr$, while we take the birth and death rates as
-parameters, so that $\In{Rabbits} = \rr \times \rr$. Accordingly, 
+parameters, so that $\In{Rabbits} = \rr \times \rr$. Accordingly,
 we can box the rabbit system up like so:
 \begin{equation}\label{eqn.rabbit_box}
 \begin{tikzpicture}[oriented WD, every fit/.style={inner xsep=\bbx, inner ysep=\bby}, bbx = 1cm, bby =.5cm, bb min width=1cm, bb port length=4pt, bb port sep=1, baseline=(Tape.center)]
@@ -826,7 +826,7 @@ Making these
 substitutions, we get the following system of differential equations:
 \[
   \begin{cases}
-    
+
 \frac{dr}{dt} =  \const{b}_{\Sys{Rabbits}}
 \cdot r - c_1 f r \\
 \frac{df}{dt} = c_2 r f - \const{d}_{\Sys{Foxes}}
@@ -864,7 +864,7 @@ wiring up the systems of $\Sys{Rabbits}$ and $\Sys{Foxes}$:
 
 The resulting system is called the \emph{Lotka-Volterra predator-prey model},
 and it is a simple differential model of the ways that the population of a
-predator species depends on the population of a prey species, and vice-versa. 
+predator species depends on the population of a prey species, and vice-versa.
 
 Where before our boxes were filled with deterministic systems, now they are
 filled with systems of (first order, ordinary) differential equations. We call these \emph{differential
@@ -872,7 +872,7 @@ filled with systems of (first order, ordinary) differential equations. We call t
 
 \begin{definition}\label{def.differential_system}
   A \emph{(first order, ordinary) differential system} $\Sys{S}$ with $n$ state variables, $m$
-  parameters, and $k$ exposed variables 
+  parameters, and $k$ exposed variables
 \[
   \lens{\update{S}}{\expose{S}} : \lens{\rr^{n}}{\rr^n} \leftrightarrows \lens{\rr^m}{\rr^k}
 \]
@@ -912,10 +912,10 @@ consists of:
   systems: the way a trajectory is defined is different
   for differential systems and determinstic systems. For differential systems, a
   trajectory will be a solution to the system of differential equations, that
-  is, a function $s : \rr \to \rr^n$ which satisfies 
+  is, a function $s : \rr \to \rr^n$ which satisfies
 $$\frac{ds}{dt}(t) = \update{S}(s(t), i(t)).$$
 for all choice of times $t$, while for a deterministic system a trajectory would
-be a sequence $s_j$ of states so that $s_{j + 1} = \update{S}(s_j, i_j)$. 
+be a sequence $s_j$ of states so that $s_{j + 1} = \update{S}(s_j, i_j)$.
 
  We will see precisely how
   this difference is made manifest in the formal definition of a systems theory as the choice of \emph{section} in \cref{sec.doctrines}.
@@ -977,7 +977,7 @@ be a sequence $s_j$ of states so that $s_{j + 1} = \update{S}(s_j, i_j)$.
 
   The $\Sys{SIR}$ model is a differential system with $3$ state variables ($S$,
   $I$, and $R$) and $2$ parameters ($\alpha$ and $\beta$). We will suppose that
-  it exposes its whole state: $\expose{SIR} = \id$. The update is given by 
+  it exposes its whole state: $\expose{SIR} = \id$. The update is given by
 \[
 \update{SIR}\left( \begin{bmatrix} S\\ I \\ R \end{bmatrix}, (\alpha, \beta)
 \right) = \begin{bmatrix} -\alpha S I \\ \alpha S I - \beta I \\ \beta I\end{bmatrix}.
@@ -992,7 +992,7 @@ be a sequence $s_j$ of states so that $s_{j + 1} = \update{S}(s_j, i_j)$.
   $(s, \dot{s})$ (the first $n$ being $s$, the second $n$ being $\dot{s}$). We think of $s$ as the actual state variable, and $\dot{s}$ as its formal derivative. We can make this formal derivative an actual derivative by adding the equations ${\update{S}}_{k}((s, \dot{s}), i) \coloneqq \dot{s}$ for $1 \leq k \leq n$ to the system
   $\frac{d\dot{s}}{dt} = {\update{S}}_{k}((s, \dot{s}), i)$ for $n + 1 \leq k \leq 2n$ of second order
   differential equations we were trying to model.
-  
+
   Often, we want to think of the state variables $\dot{s}$ as \emph{hidden}
   technical tricks. For this reason, we will often only expose the ``actual''
   state variables $s$. This is one use for the function $\expose{S}$.
@@ -1270,7 +1270,7 @@ This can be expressed as the following wiring diagram:
   \node[bb={1}{1}, fill=blue!10, below=1.5 of X1] (X2) {$\Sys{S_2}$};
 	\node[bb={0}{0}, fit={($(X1.north west)+(-2,1)$) ($(X1.north east)+(2,1)$) ($(X2.south)+(0,-2)$)}] (Y) {};
   \node[above=0pt of Y.south] (Label) {$\Sys{S_1 \otimes S_2}$};
-  
+
   \draw[shorten <=-3pt] (X1_in1-|Y.west) to (X1_in1);
   \draw[shorten <=-3pt] (X2_in1-|Y.west) to (X2_in1);
 
@@ -1297,14 +1297,14 @@ product, and then we compose it with a lens that represents the wiring diagram.
   \draw let \p1=(X1.south west), \p2=(X2.north east), \n1=\bbportlen, \n2=\bby in
     (X2_out1) to[in=0] (\x2 + \n1, \y2 + \n2) -- (\x1 - \n1, \y2 + \n2) to[out=180] (X1_in1);
   \draw (X2_out1) to (Y_out2);
-	\draw[label] 
+	\draw[label]
 		node [right=2pt of Y_out1] {$\Set{a.m./p.m.}$}
 		node [right=2pt of Y_out2] {$\Set{Hour}$}
 		;
 \end{tikzpicture}
 \end{equation}
 
-First, we take the parallel product of $\Sys{Meridian}$ and $\Sys{Clock}$ (see \cref{exc.clock_meridian_diner}) to get the system 
+First, we take the parallel product of $\Sys{Meridian}$ and $\Sys{Clock}$ (see \cref{exc.clock_meridian_diner}) to get the system
 $$\Sys{Meridian} \otimes \Sys{Clock} : \lens{\Set{a.m./p.m.} \times \Set{Hour}}{\Set{a.m./p.m.} \times \Set{Hour}} \leftrightarrows \lens{\1\times\Set{Hour}}{\Set{a.m./p.m.} \times \Set{Hour}}.$$
 
 Now, we will express the wiring pattern in \cref{eqn.clock_system_box2} as a lens
@@ -1313,7 +1313,7 @@ $$\lens{w^{\sharp}}{w} : \lens{\1\times\Set{Hour}}{\Set{a.m./p.m.} \times \Set{H
 We do this by setting
 \begin{align*}
   w(m, h) &:= (m, h), \mbox{ and} \\
-  w^{\sharp}((m, h), \ast) &:= (\ast, h). 
+  w^{\sharp}((m, h), \ast) &:= (\ast, h).
 \end{align*}
 Seen as a wiring diagram on its own, $\lens{w^{\sharp}}{w}$ looks like this:
 \begin{equation}
@@ -1326,12 +1326,12 @@ Seen as a wiring diagram on its own, $\lens{w^{\sharp}}{w}$ looks like this:
 
   \draw (Mid_out1) to (Y_out1|-Mid_out1);
   \draw (Mid_out2) to (Y_out1|-Mid_out2);
-  
-  
+
+
   \draw let \p1=(Mid.south east), \p2=(Mid.south west), \n1=\bbportlen, \n2=\bby in
     (Mid_out2) to[out=0, in=0] (\x1 + \n1, \y1-\n2) -- (\x2 - \n1, \y1 - \n2) to[out=180, in=180] (Mid_in1);
 
-	\draw[label] 
+	\draw[label]
 		node [right=2pt of Y_out1|-Mid_out1] {$\Set{a.m./p.m.}$}
 		node [right=2pt of Y_out2|-Mid_out2] {$\Set{Hour}$}
 		;
@@ -1339,7 +1339,7 @@ Seen as a wiring diagram on its own, $\lens{w^{\sharp}}{w}$ looks like this:
 \end{equation}
 
 
-We can then see that 
+We can then see that
 $$\Sys{ClockWithDisplay} = \lens{w^{\sharp}}{w} \circ (\Sys{Meridian} \otimes
 \Sys{Clock})$$
 just like we wanted! In terms of wiring diagrams, this looks like:
@@ -1354,7 +1354,7 @@ just like we wanted! In terms of wiring diagrams, this looks like:
   \draw let \p1=(X1.south west), \p2=(X2.north east), \n1=\bbportlen, \n2=\bby in
     (X2_out1) to[in=0] (\x2 + \n1, \y2 + \n2) -- (\x1 - \n1, \y2 + \n2) to[out=180] (X1_in1);
   \draw (X2_out1) to (Y_out2);
-	\draw[label] 
+	\draw[label]
 		node [right=2pt of Y_out1] {$\Set{a.m./p.m.}$}
 		node [right=2pt of Y_out2] {$\Set{Hour}$}
 		;
@@ -1376,12 +1376,12 @@ just like we wanted! In terms of wiring diagrams, this looks like:
 
   \draw (Mid_out1|-X1_out1) to (Y_out1|-X1_out1);
   \draw (Mid_out2|-X2_out1) to (Y_out1|-X2_out1);
-  
-  
+
+
   \draw let \p1=(Mid.south east), \p2=(Mid.south west), \n1=\bbportlen, \n2=\bby in
     (Midout) to[out=0, in=0] (\x1 + \n1, \y1-\n2) -- (\x2 - \n1, \y1 - \n2) to[out=180, in=180] (Midin);
 
-	\draw[label] 
+	\draw[label]
 		node [right=2pt of Y_out1|-X1_out1] {$\Set{a.m./p.m.}$}
 		node [right=2pt of Y_out2|-X2_out1] {$\Set{Hour}$}
 		;
@@ -1503,7 +1503,7 @@ $\lens{\Set{Colors}}{\Set{Bool}}$:
   \begin{tikzcd}[column sep=small]
     \LMO{\true} \ar[out=120, in=90, loop, red] \ar[in=210, out=250, loop, blue] \ar[rr, bend left = 10, dgreen] \ar[rr, leftarrow, red, bend right= 10] \ar[ddr, leftarrow, dgreen, bend right= 10] &  & \LMO{\false} \ar[loop right, dgreen] \ar[ddl, blue, bend left= 10] \ar[ddl,red, leftarrow, bend right= 10]  \\
     & & \\
-    & \LMO{\true} \ar[out=300, in=240, loop, blue] & 
+    & \LMO{\true} \ar[out=300, in=240, loop, blue] &
   \end{tikzcd}
   };
 \end{tikzpicture}
@@ -1512,7 +1512,7 @@ $\lens{\Set{Colors}}{\Set{Bool}}$:
 \begin{enumerate}
 	\item Write down the transition diagram of the system obtained by connecting the above systems according to the following wiring diagram:
 \[
-\Sys{S} \coloneqq 
+\Sys{S} \coloneqq
 \begin{tikzpicture}[oriented WD, bbx = .3cm, bby =.3cm, bb min width=.5cm, bb port length=2pt, bb port sep=1, every fit/.style={inner xsep=\bbx, inner ysep=\bby}
 , baseline=(Outer.center)]
   \node[bb={1}{1}, fill=blue!10] (S1) {$\Sys{S_1}$};
@@ -1536,7 +1536,7 @@ systems $\Sys{S_1}$ and $\Sys{S_2}$.
 In \cref{ex.SIR_model_discrete,,ex.sir_model_diff}, we saw deterministic and
 differential SIR models. Each models the spread of a disease through a single
 population. But what about a global pandemic where the disease is spreading
-through many local populations? 
+through many local populations?
 
 To model the spread of a disease through many different populations, we can use
 what is called a \emph{multi-city SIR model}. We call each population a
@@ -1551,7 +1551,7 @@ then certain wiring diagrams of cities will correspond to multi-city models!
 , bbx = .3cm, bby =.3cm, bb min width=.5cm, bb port length=2pt, bb port sep=1, baseline=(Sys.center)]
 	\node[bb={2}{1}, fill=blue!10] (Sys) {$\Sys{City}$};
 
-	\draw[label] 
+	\draw[label]
 		node [right=2pt of Sys_out1] {$\rr^3$}
 		node [left=2pt of Sys_in1] {$\rr^3$}
 		node [left=2pt of Sys_in2] {$\rr^3$}
@@ -1590,10 +1590,10 @@ are dealing with and how population flows between them. We'll call this a
   $3 \times 3$ real diagonal matrices $\const{Flow}_{1\to
     2}$ of the following form:
   \[
-\begin{bmatrix} 
+\begin{bmatrix}
   r_S & 0 & 0 \\
   0 & r_I & 0 \\
-  0 & 0 & r_R 
+  0 & 0 & r_R
 \end{bmatrix}.
 \]
 
@@ -1619,21 +1619,21 @@ can travel freely. Let's focus in on one of these ways to travel, say
 $\Sys{Boston} \to \Sys{NYC}$. This is associated to a matrix
 \[
 \const{Flow}_{\Sys{Boston} \to \Sys{NYC}} \coloneqq
-\begin{bmatrix} 
+\begin{bmatrix}
   r_S & 0 & 0 \\
   0 & r_I & 0 \\
-  0 & 0 & r_R 
+  0 & 0 & r_R
 \end{bmatrix}.
 \]
 per the definition of a population flow graph. Here's how to understand this
 matrix. If the current population of $\Sys{Boston}$ (split into susceptible,
-infected, and removed) is $s = \begin{bmatrix}S \\ I \\ R\end{bmatrix}$, then 
+infected, and removed) is $s = \begin{bmatrix}S \\ I \\ R\end{bmatrix}$, then
 \[
-  \const{Flow}_{\Sys{Boston} \to \Sys{NYC}}\, s = 
-\begin{bmatrix} 
+  \const{Flow}_{\Sys{Boston} \to \Sys{NYC}}\, s =
+\begin{bmatrix}
   r_S & 0 & 0 \\
   0 & r_I & 0 \\
-  0 & 0 & r_R 
+  0 & 0 & r_R
 \end{bmatrix}
 \begin{bmatrix}S \\ I \\ R\end{bmatrix} =
 \begin{bmatrix}r_S S \\ r_I I \\ r_R R\end{bmatrix}
@@ -1675,8 +1675,8 @@ flows to it. That is, we will prepare each city like so:
   \draw ($(dots2) + (0, 2)$) to[out=180, in=0] (Z_in1|-{$(dots2) + (0, 2)$});
   \draw ($(dots2) - (0, 2)$) to[out=180, in=0] (Z_in1|-{$(dots2) - (0, 2)$});
 
-  \draw (Sys_out1) to ($(dots3) + (0, 2)$); 
-  \draw (Sys_out1) to ($(dots3) - (0, 2)$); 
+  \draw (Sys_out1) to ($(dots3) + (0, 2)$);
+  \draw (Sys_out1) to ($(dots3) - (0, 2)$);
   \draw ($(dots3) + (0, 2)$) to (Z_out1|-{$(dots3) + (0, 2)$});
   \draw ($(dots3) - (0, 2)$) to (Z_out1|-{$(dots3) - (0, 2)$});
 \end{tikzpicture}
@@ -1715,8 +1715,8 @@ preparation necessary for $\Sys{Boston}$ in \cref{eqn.population_flow_graph}:
   \draw ($(dots2) + (0, 2)$) to[out=180, in=0] (Z_in1|-{$(dots2) + (0, 2)$});
   \draw ($(dots2) - (0, 2)$) to[out=180, in=0] (Z_in1|-{$(dots2) - (0, 2)$});
 
-  \draw (Sys_out1) to ($(dots3) + (0, 2)$); 
-  \draw (Sys_out1) to ($(dots3) - (0, 2)$); 
+  \draw (Sys_out1) to ($(dots3) + (0, 2)$);
+  \draw (Sys_out1) to ($(dots3) - (0, 2)$);
   \draw ($(dots3) + (0, 2)$) to (Z_out1|-{$(dots3) + (0, 2)$});
   \draw ($(dots3) - (0, 2)$) to (Z_out1|-{$(dots3) - (0, 2)$});
 \end{tikzpicture}
@@ -1749,7 +1749,7 @@ $\Sys{Boston} \to \Sys{NYC}$ in the population flow graph \cref{eqn.population_f
 , bbx = .3cm, bby =.3cm, bb min width=.5cm, bb port length=0pt, bb port sep=1, baseline=(Sys.center)]
 	\node[bb={6}{1}, fill=blue!10] (Sys) {$\Sys{Boston}$};
 	\node[bb={6}{1}, fill=blue!10, below = 8 of Sys] (Sys2) {$\Sys{NYC}$};
-  
+
   \node[draw=dgreen, circle, below=4 of Sys, anchor=center] (Flow) {$\const{Flow}$};
 
   \node[draw=dgreen, circle, left = of Sys_in6] (plus2) {$+$};
@@ -1775,11 +1775,11 @@ $\Sys{Boston} \to \Sys{NYC}$ in the population flow graph \cref{eqn.population_f
   \draw ($(dots2nyc) + (0, 2)$) to[out=180, in=0] (Z_in1|-{$(dots2nyc) + (0, 2)$});
   \draw ($(dots2nyc) - (0, 2)$) to[out=180, in=0] (Z_in1|-{$(dots2nyc) - (0, 2)$});
 
-  \draw (Sys_out1) to ($(dots3) + (0, 2)$); 
-  \draw (Sys_out1) to ($(dots3) - (0, 2)$); 
+  \draw (Sys_out1) to ($(dots3) + (0, 2)$);
+  \draw (Sys_out1) to ($(dots3) - (0, 2)$);
   \draw ($(dots3) + (0, 2)$) to (Z_out1|-{$(dots3) + (0, 2)$});
-  \draw (Sys2_out1) to ($(dots3nyc) + (0, 2)$); 
-  \draw (Sys2_out1) to ($(dots3nyc) - (0, 2)$); 
+  \draw (Sys2_out1) to ($(dots3nyc) + (0, 2)$);
+  \draw (Sys2_out1) to ($(dots3nyc) - (0, 2)$);
   \draw ($(dots3nyc) + (0, 2)$) to (Z_out1|-{$(dots3nyc) + (0, 2)$});
   \draw ($(dots3nyc) - (0, 2)$) to (Z_out1|-{$(dots3nyc) - (0, 2)$});
 
@@ -1803,7 +1803,7 @@ parameter of $\Sys{NYC}$.
 
 \iffalse
 \begin{example}[Multi-city SIR models]\label{ex.multi_city_SIR_discrete}
-  
+
   In \cref{ex.SIR_model_discrete}, we saw how a discrete version of the SIR
   model can be seen as a deterministic system. This model assumes there is a
   single population, but what if we wanted to study the spread of a disease
@@ -1828,17 +1828,17 @@ parameter of $\Sys{NYC}$.
   Later, in \cref{sec.population_flow_graph}, we will see this sort of diagram
   as a \emph{population flow graph}. But for now, we'll just see how to turn it
   into a deterministic system.
-  
+
   To define each city as a system, we will add parameters to each
   that express the incoming population. Since only one city is incoming to
   Boston, we will only need one set of these parameters: $(e_s, e_i, e_r)$
-  corresponding to the inflow of each population class. 
+  corresponding to the inflow of each population class.
   \begin{align*}
     \State{Boston} &:= \left\{\begin{bmatrix} s \\ i \\ r \end{bmatrix}\, \middle|\, s,\, i,\, r\in \rr\right\} = \State{SIR}. \\
     \Out{Boston} &:= \Out{SIR} = \State{Boston} \\
     \In{Boston} &:= \left\{ \begin{bmatrix} a \\ b \\ (e_s, e_i, e_r)  \end{bmatrix}\, \middle|\, a,\,b\in \rr,\, e \in \rr^3 \right\}= \In{SIR} \times \Out{SIR}\\
     \expose{Boston}\left( \begin{bmatrix} s \\ i \\ r \end{bmatrix}\right) &:= \id \\
-    \update{Boston}\left( \begin{bmatrix} s\\ i\\ r \end{bmatrix},\, \begin{bmatrix} a\\ b\\  e\end{bmatrix} \right) &:= \begin{bmatrix}s - asi + f_{s, \Sys{NYC}\to\Sys{Bos}}e_s - f_{s, \Sys{Bos}\to\Sys{NYC}} s \\ i + asi - bi + f_{i, \Sys{NYC}\to\Sys{Bos}}e_i - f_{i, \Sys{Bos}\to\Sys{NYC}} i \\ r + bi+ f_{r, \Sys{NYC}\to\Sys{Bos}}e_r - f_{r, \Sys{Bos}\to\Sys{NYC}} r \end{bmatrix} 
+    \update{Boston}\left( \begin{bmatrix} s\\ i\\ r \end{bmatrix},\, \begin{bmatrix} a\\ b\\  e\end{bmatrix} \right) &:= \begin{bmatrix}s - asi + f_{s, \Sys{NYC}\to\Sys{Bos}}e_s - f_{s, \Sys{Bos}\to\Sys{NYC}} s \\ i + asi - bi + f_{i, \Sys{NYC}\to\Sys{Bos}}e_i - f_{i, \Sys{Bos}\to\Sys{NYC}} i \\ r + bi+ f_{r, \Sys{NYC}\to\Sys{Bos}}e_r - f_{r, \Sys{Bos}\to\Sys{NYC}} r \end{bmatrix}
   \end{align*}
 
 We can define the $\Sys{NYC}$ system similarly, but with the flows rates
@@ -1855,12 +1855,12 @@ We can box up $\Sys{Boston}$ as:
 , bbx = .3cm, bby =.3cm, bb min width=.5cm, bb port length=2pt, bb port sep=1, baseline=(Sys.center)]
 	\node[bb={2}{1}, fill=blue!10] (Sys) {$\Sys{Boston}$};
 
-	\draw[label] 
+	\draw[label]
 		node [right=2pt of Sys_out1] {$\Out{SIR}$}
 		node [left=2pt of Sys_in1] {$\In{SIR}$}
 		node [left=2pt of Sys_in2] {$\Out{SIR}$}
 		;
-    
+
 \end{tikzpicture}
 \end{equation}
 
@@ -1874,12 +1874,12 @@ of the other:
   \node[bb={2}{1}, fill=blue!10, below= 1cm of Boston] (NYC)  {$\Sys{NYC}$};
 
   \node[bb={0}{0}, fit={($(Boston.north east) + (2, 1)$) ($(NYC.south west) - (2, 1)$)}] (Outer) {};
-  
+
   \draw (Boston_out1) to (Outer.east|-Boston_out1);
   \draw (NYC_out1) to (Outer.east|-NYC_out1);
   \draw (Outer.west|-Boston_in1) to (Boston_in1);
   \draw (Outer.west|-NYC_in1) to (NYC_in1);
-  
+
   \draw let \p1=(Boston_out1), \p2=(NYC_in2), \n1=\bbportlen, \n2=\bby in
     (Boston_out1) to[in=0] (\x1 - \n1, \y1 - .7cm) to (\x2 + \n1, \y1 - .7cm) to[out=180] (NYC_in2);
   \draw let \p1=(NYC_out1), \p2=(Boston_in2), \n1=\bbportlen, \n2=\bby in
@@ -1916,7 +1916,7 @@ category of wiring diagrams.
 \begin{informal}
   A \emph{wiring diagram} is a diagram which consists of a number of \emph{inner
   boxes}, each with some \emph{input ports} and some \emph{output ports}, that are wired
-together inside an \emph{outer box}, which also has input and output ports. This gives four types of ports: inner (box) input (port), inner output, outer input, and outer output. 
+together inside an \emph{outer box}, which also has input and output ports. This gives four types of ports: inner (box) input (port), inner output, outer input, and outer output.
 
 We can wire in the following ways:
 \begin{enumerate}
@@ -1937,12 +1937,12 @@ diagrams, and then erasing the middle layer of boxes.
 \begin{tikzpicture}[oriented WD, every fit/.style={inner xsep=\bbx, inner ysep=\bby}, bby=1ex]
   \node[bb={3}{2}, fill=blue!10] (X1) {};
   \node[bb={1}{1}, fill=blue!10, below=.4cm of X1] (X2) {};
-  \node[bb={0}{2}, fill=blue!10, below=.4cm of X2] (X3) {};   
+  \node[bb={0}{2}, fill=blue!10, below=.4cm of X2] (X3) {};
 \end{tikzpicture}
 }
 &
 \;\;\parbox{1.45in}{
-\begin{tikzpicture}[oriented WD, every fit/.style={inner xsep=\bbx, inner ysep=\bby},bb min width =.7cm, bb port sep =1, bbx=.6cm,bb port length=3pt] 
+\begin{tikzpicture}[oriented WD, every fit/.style={inner xsep=\bbx, inner ysep=\bby},bb min width =.7cm, bb port sep =1, bbx=.6cm,bb port length=3pt]
   \node[bb port sep=1.6, fill=blue!10, bb={2}{2}] (X1) {};
   \node[bb port sep=.8,bb={1}{1}, fill=blue!10, right=.7 of X1_out1] (X2) {};
   \node[bb={1}{2}, fit={(X1) (X2) ($(X1.north)+(0,1)$)}] (Y) {};
@@ -1993,7 +1993,7 @@ had need for this yet) how they are to be deleted or forgotton.
 In order to capture this idea of copying, deleting, and shuffling around
 variables, we will work with the \emph{category of arities} (and variations on it). The
 category of arities is extremely important since it captures precisely the
-algebra of copying, deleting, and shuffling around variables. 
+algebra of copying, deleting, and shuffling around variables.
 In this section, we will interpret various sorts of wiring diagrams as lenses in
 categories of arities, which are the free cartesian categories.
 
@@ -2003,7 +2003,7 @@ categories of arities, which are the free cartesian categories.
   the \emph{generic object}, and for any finite set $I$, there is an $I$-fold
   power $\XX^I$ of $\XX$. The only maps are those that can be defined from the
   product structure by pairing and projection.
-  
+
   Explicitly, $\arity$ is has:
 \begin{itemize}
   \item Objects $\{\XX^{I}\mid I \text{ a finite set}\}$.
@@ -2107,12 +2107,12 @@ If we write both of these in function notation, then we can see that the composi
       \emph{initial} function $!' : \ord{0} \to \ord{2}$ which includes empty
       set into the set with two elements (hint, there's \emph{nothing} on one side).
     \item The duplication morphism $!^{\ast} : \XX \to \XX^{\ord{2}}$ given by
-      $! : \ord{2} \to \ord{1}$. 
+      $! : \ord{2} \to \ord{1}$.
     \item The swap morphisms $\fun{swap}^{\ast} : \XX^{\ord{2}} \to
       \XX^{\ord{2}}$ given by $\fun{swap} : \ord{2} \to \ord{2}$ defined by $0
       \mapsto 1$ and $1 \mapsto 0$.
     \item What map corresponds to the map $1 : \ord{1} \to \ord{2}$ picking out
-      $1 \in \ord{2} = \{1, 2\}$? What about $2 : \ord{1} \to \ord{2}$. 
+      $1 \in \ord{2} = \{1, 2\}$? What about $2 : \ord{1} \to \ord{2}$.
     \item Convince yourself that \emph{any} map $\XX^I \to \XX^J$ you can express with the
       universal property of products can be expressed by choosing an appropriate
       $f : J \to I$.
@@ -2275,7 +2275,7 @@ $\lens{w^{\sharp}}{w}$, and then remove this middle layer of boxes.
 \node[bb={1}{1}, fill=blue!10] (TL) {\phantom{ space }};
 \node[bb={2}{0}, fill=blue!10, below = 4 of TL] (LL) {\phantom{sp}};
 \node[bb={1}{1}, fill=blue!10] (R) at ($(TL) + (6, -3)$) {\phantom{ space }};
-  
+
 \node[bb={1}{1}, fit={($(TL) + (-3,1)$) (LL) ($(R) + (2,0)$)}] (Middle) {};
 
 \draw (Middle_in1|-TL_in1) to (TL_in1);
@@ -2328,7 +2328,7 @@ $\lens{w^{\sharp}}{w}$, and then remove this middle layer of boxes.
 \node[bb={1}{1}, fill=blue!10] (TL) {\phantom{ space }};
 \node[bb={2}{0}, fill=blue!10, below = 4 of TL] (LL) {\phantom{sp}};
 \node[bb={1}{1}, fill=blue!10] (R) at ($(TL) + (6, -3)$) {\phantom{ space }};
-  
+
 \node[bb={2}{2}, fit={($(TL) + (-3,1)$) (LL) ($(R) + (2,0)$)}, dashed] (Middle) {};
 
 \draw (Middle_in1|-TL_in1) to (TL_in1);
@@ -2364,7 +2364,7 @@ this matches the formula given to us by lens composition in $\arity$.
 \begin{itemize}
   \item An outer output port is wired to a middle output port, and this middle
     output port is wired to an inner input port. So, to compose, we wire the
-    outer output port to this inner output port. 
+    outer output port to this inner output port.
   \item A inner input port is either wired to an inner input port or a middle
     input port. If it is wired to an inner input port, we leave it that way.
     Suppose that it was instead wired to a middle input port. This middle input
@@ -2439,7 +2439,7 @@ means that it satisfies a very useful universal property.
 \end{proposition}
 \begin{proof}[Proof Sketch]
   The functor $\Fun{ev}_C$ can be defined by ``just substitute $C$ for $\XX$''.
-  Namely, we send 
+  Namely, we send
 $$\XX^I \mapsto C^I$$
 and for every function $f^{\ast} : \XX^I \to \XX^J$, we send it to $f^{\ast} :
 C^I \to C^J$ defined by the universal property of the product in $\cat{C}$. This
@@ -2461,7 +2461,7 @@ $(c_2,\, c_2)$.
 By the functoriality of the lens construction, this means that given an object
 $C \in \cat{C}$ of a cartesian category of ``values that should be flowing on
 our wires'', we can interpret a wiring diagram as a lens in $\cat{C}$! We record
-this observation in the following proposition. 
+this observation in the following proposition.
 \begin{proposition}\label{prop.wiring_diagram_as_lens}
   Let $C \in \cat{C}$ be an object of a cartesian category. Then there is a
   strong monoidal functor
@@ -2495,13 +2495,13 @@ wires that carry the same type of signal.
       \prod_{i \in I} \XX_{\tau_i}$ for any function $f : I \to J$ which
       preserves the typing: $\tau_{fi} = \tau_i$.
     \item Composition is given by $g^{\ast} \circ f^{\ast} = (f \circ g)^{\ast}$
-      and the identity is given by $\id := \id^{\ast}$. 
+      and the identity is given by $\id := \id^{\ast}$.
   \end{itemize}
   That is, $\arity_{\cat{T}} \cong (\Cat{Fin} \downarrow \cat{T})\op$ is dual to
   the category
   $\Cat{Fin} \downarrow \cat{T}$ of \emph{$\cat{T}$-typed finite sets}, the slice category (a.k.a. comma category)
   of the inclusion $\Cat{Fin} \hookrightarrow \Cat{Set}$ over the set $\cat{T}$
-  of types. 
+  of types.
 \end{definition}
 
 \begin{exercise}
@@ -2590,7 +2590,7 @@ Combine \cref{prop.arity_universal_property} with \cref{prop.lens_functoriality}
 \begin{remark}
   Because the action of $\Fun{ev}_C$ is so simple, we will often just equate the
   typed wiring diagram with the lens it gives when interpreted in our category
-  of choice. 
+  of choice.
 \end{remark}
 \begin{example}
   We can describe the wiring diagram
@@ -2604,12 +2604,12 @@ Combine \cref{prop.arity_universal_property} with \cref{prop.lens_functoriality}
 
   \draw (Mid_out1) to (Y_out1|-Mid_out1);
   \draw (Mid_out2) to (Y_out1|-Mid_out2);
-  
-  
+
+
   \draw let \p1=(Mid.south east), \p2=(Mid.south west), \n1=\bbportlen, \n2=\bby in
     (Mid_out2) to[out=0, in=0] (\x1 + \n1, \y1-\n2) -- (\x2 - \n1, \y1 - \n2) to[out=180, in=180] (Mid_in1);
 
-	\draw[label] 
+	\draw[label]
 		node [right=2pt of Y_out1|-Mid_out1] {$\Set{a.m./p.m.}$}
 		node [right=2pt of Y_out2|-Mid_out2] {$\Set{Hour}$}
 		;
@@ -2687,7 +2687,7 @@ willing or able to perform on the values flowing through the wires of our wiring
 \begin{informal}
 A wiring diagram with operations from an algebraic theory $\mathbb{T}$ is a
 wiring diagram where operations from the theory $\mathbb{T}$ can be drawn in
-little green beads on the wires. 
+little green beads on the wires.
 \end{informal}
 
 \begin{example}
@@ -2726,7 +2726,7 @@ little green beads on the wires.
 
 We want to make these informal definitions precise. Ultimately, we want to be
 able to say that ``wiring diagrams with operations from $\mathbb{T}$ are lenses
-in such and such cartesian category''. We can do this with the notion of Lawvere theory. 
+in such and such cartesian category''. We can do this with the notion of Lawvere theory.
 
 Lawvere introduced his theories in his 1963 thesis ``Functorial Semantics of
 Algebraic Theories'' \cite{Lawvere:Functorial.Semantics} as the invariant concepts of algebraic theories,
@@ -2744,7 +2744,7 @@ A Lawvere theory is, in some sense, a category of arities ``with extra maps''.
 We think of these extra maps as coming from the operations of some theory.
 \begin{definition}
 A $\cat{T}$-sorted Lawvere theory $\cat{L}$ is a cartesian category equipped with a bijective-on-objects functor $\arity_{\cat{T}} \hookrightarrow
-\cat{L}$. 
+\cat{L}$.
 
 If $\cat{T}$ has a single element, we refer to this as a \emph{single sorted}
 Lawvere theory.
@@ -2814,7 +2814,7 @@ functors sending $\rr$ to $V$.
   \rr$ to the corresponding operations on $V$. Given a general linear map $f :
   \rr^I \to \rr^J$, $f$ can be expressed as a composite of these operations;
   therefore, we can define $\hat{V}(f)$ to be the corresponding composite of the
-  operations on $V$. 
+  operations on $V$.
 \end{proof}
 
 \begin{definition}
@@ -2859,7 +2859,7 @@ we will see how non-deterministic systems can be seen as a variant of lenses:
 The idea of composing dynamical systems --- deterministic and differential ---
 using lenses can be found in
 \cite{Vagner.Spivak.Lerman:2015a}. Further exploration of
-this idea for differential systems can be found in \cite{Bakirtsiz-Vasilakopolou-Fleming:Compositional.Cyber.Physical.Systems.Modelling}. 
+this idea for differential systems can be found in \cite{Bakirtsiz-Vasilakopolou-Fleming:Compositional.Cyber.Physical.Systems.Modelling}.
 
 
 \end{document}

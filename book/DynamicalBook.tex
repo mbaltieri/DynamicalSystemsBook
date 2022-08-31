@@ -46,7 +46,7 @@ citecolor=orange!50!black, urlcolor=orange!50!black, pdfencoding=unicode]{hyperr
 \usepackage{newpxtext}
 \usepackage[varg,bigdelims]{newpxmath}
 \usepackage{mathrsfs}
-\usepackage{minted}
+\usepackage[cache=false]{minted}
 \usepackage{dutchcal}
 \usepackage{fontawesome}
 
@@ -61,7 +61,7 @@ citecolor=orange!50!black, urlcolor=orange!50!black, pdfencoding=unicode]{hyperr
 % For external graphics.
 \graphicspath{graphics/}
 
-%\usepackage{changepage} %indented paragraphs in solutions 
+%\usepackage{changepage} %indented paragraphs in solutions
 %\usepackage{showkeys} %for drafting; prints labels in margin
 
 %-------- Package setup --------%
@@ -70,20 +70,20 @@ citecolor=orange!50!black, urlcolor=orange!50!black, pdfencoding=unicode]{hyperr
   \newcommand{\creflastconjunction}{, and\nobreakspace} % serial comma
 
 % biblatex %
-  \addbibresource{Library20200714.bib} 
+  \addbibresource{Library20200714.bib}
 
 % makeidx %
-  \makeindex 
+  \makeindex
 
 % hyperref %
   \hypersetup{final}
 
 % enumitem %
   \setlist{nosep}
-  
+
 % footnote
 	\makesavenoteenv{tabular}
-	
+
 % minted
 \newenvironment{agda}
   {\VerbatimEnvironment
@@ -100,7 +100,7 @@ citecolor=orange!50!black, urlcolor=orange!50!black, pdfencoding=unicode]{hyperr
 \input{2cat.tikzstyles}
 
 
-  \usetikzlibrary{ 
+  \usetikzlibrary{
   	cd,
   	math,
   	decorations.markings,
@@ -117,12 +117,12 @@ citecolor=orange!50!black, urlcolor=orange!50!black, pdfencoding=unicode]{hyperr
     circuits,
     circuits.ee.IEC
   }
-  
+
 	\tikzcdset{arrow style=tikz, diagrams={>=To}}
-	
+
 	\input{tikz_stuff}
 
-  
+
 \tikzset{
   	unoriented WD/.style={
   		every to/.style={draw},
@@ -150,28 +150,28 @@ citecolor=orange!50!black, urlcolor=orange!50!black, pdfencoding=unicode]{hyperr
   	surround sep/.store in=\ssep,
   	surround sep=8pt,
   	link/.style={
-  		circle, 
-  		draw=black, 
+  		circle,
+  		draw=black,
   		fill=black,
-  		inner sep=0pt, 
+  		inner sep=0pt,
   		minimum size=\lsize
   	},
   	pack/.style={
-  		circle, 
-  		draw = \pocolor, 
+  		circle,
+  		draw = \pocolor,
   		fill = \picolor,
   		inner sep = .25*\psize,
   		minimum size = \psize
   	},
   	outer pack/.style={
-  		ellipse, 
+  		ellipse,
   		draw,
   		inner sep=\ssep,
   		color=\pocolor,
   	},
   	intermediate pack/.style={
   		ellipse,
-  		dashed, 
+  		dashed,
   		draw,
   		inner sep=\ssep,
   		color=\pocolor,
@@ -269,7 +269,7 @@ citecolor=orange!50!black, urlcolor=orange!50!black, pdfencoding=unicode]{hyperr
   \newmdtheoremenv[style=theoremframe]{proposition}[subsubsection]{Proposition}
   \newmdtheoremenv[style=theoremframe]{corollary}[subsubsection]{Corollary}
   \newmdtheoremenv[style=theoremframe]{lemma}[subsubsection]{Lemma}
-  
+
   \theoremstyle{plain}
   \newmdtheoremenv[style=definitionframe]{definition}[subsubsection]{Definition}
   \newmdtheoremenv[style=definitionframe]{informal}[subsubsection]{Informal Definition}
@@ -280,11 +280,11 @@ citecolor=orange!50!black, urlcolor=orange!50!black, pdfencoding=unicode]{hyperr
   \newtheorem{notation}[subsubsection]{Notation}
   \newtheorem{axiom}{Axiom}
   \newtheorem*{axiom*}{Axiom}
-  
+
   \theoremstyle{remark}
   \newtheorem{remark}[subsubsection]{Remark}
   \newtheorem{warning}[subsubsection]{Warning}
-  
+
 
 % Solution environment
 
@@ -332,14 +332,14 @@ citecolor=orange!50!black, urlcolor=orange!50!black, pdfencoding=unicode]{hyperr
 \end{tikzpicture}
 \end{aligned}
 }
-		
+
 %Getting ending symbols in example and exercise environments:
-	
+
 \newmdtheoremenv[style=exampleframe]{example}[subsubsection]{Example}
 
 \newmdtheoremenv[style=exerciseframe]{exc-inner}[subsubsection]{Exercise}
 \newenvironment{exercise}[1][]{
-  \def\qedsymbol{$\lozenge$}% Set the QED symbol. 
+  \def\qedsymbol{$\lozenge$}% Set the QED symbol.
   \pushQED{\qed}
   \begin{exc-inner}[#1]~
 }{
@@ -368,9 +368,9 @@ citecolor=orange!50!black, urlcolor=orange!50!black, pdfencoding=unicode]{hyperr
 
 \newcommand{\slogan}[1]{\begin{center}\textit{#1}\end{center}}
 
-  
+
 %-------- Single symbols --------%
-	
+
 \DeclareSymbolFont{stmry}{U}{stmry}{m}{n}
 \DeclareMathSymbol\fatsemi\mathop{stmry}{"23}
 
@@ -456,7 +456,7 @@ citecolor=orange!50!black, urlcolor=orange!50!black, pdfencoding=unicode]{hyperr
 \renewcommand{\iff}{\Leftrightarrow}
 \newcommand{\down}{\mathbin{\downarrow}}
 \newcommand{\fromto}{\leftrightarrows}
-\newcommand{\xtickar}[1]{\begin{tikzcd}[baseline=-0.5ex,cramped,sep=small,ampersand 
+\newcommand{\xtickar}[1]{\begin{tikzcd}[baseline=-0.5ex,cramped,sep=small,ampersand
 replacement=\&]{}\ar[r,tick, "{#1}"]\&{}\end{tikzcd}}
 
 
@@ -536,7 +536,7 @@ replacement=\&]{}\ar[r,tick, "{#1}"]\&{}\end{tikzcd}}
 \newcommand{\8}{\textsf{8}}
 \newcommand{\9}{\textsf{9}}
 
-\definecolor{dgreen}{rgb}{0.0, 0.5, 0.3} 
+\definecolor{dgreen}{rgb}{0.0, 0.5, 0.3}
 \definecolor{dyellow}{rgb}{8.0, 0.74, 0}
 
 \newcommand{\pphantom}[2]{$\phantom{#1}$\nodepart{two}$\vphantom{#2}$}
@@ -575,8 +575,8 @@ replacement=\&]{}\ar[r,tick, "{#1}"]\&{}\end{tikzcd}}
 \newcommand{\tripow}[1]{^{\lhd #1}}
 
 \newcommand{\bul}[1][black]{{\color{#1}\ensuremath{\bullet}}}
- 
- 
+
+
 \newcommand{\centergraphics}[2][width=\textwidth]{
 \begin{center}
 	\includegraphics[#1]{#2}
@@ -602,9 +602,9 @@ replacement=\&]{}\ar[r,tick, "{#1}"]\&{}\end{tikzcd}}
 \newcommand{\coheq}{\xequals{\cdot}} % for ''equal up to obvious coherent iso''
 
 \newcommand{\dd}{\mathbb{T}}
-\newcommand{\determ}{\mathbb{D}\textsc{et}} 
-\newcommand{\depdeterm}{\mathbb{D}\textsc{pDet}} 
-\newcommand{\nondeterm}{\mathbb{N}\textsc{onDet}} 
+\newcommand{\determ}{\mathbb{D}\textsc{et}}
+\newcommand{\depdeterm}{\mathbb{D}\textsc{pDet}}
+\newcommand{\nondeterm}{\mathbb{N}\textsc{onDet}}
 \newcommand{\eucdiff}{\mathbb{E}\textsc{uc}}
 \newcommand{\cartdiff}{\mathbb{C}\textsc{artDiff}}
 \newcommand{\diffdoc}{\mathbb{D}\textsc{iff}}

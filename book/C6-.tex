@@ -196,7 +196,7 @@ exposed variables equal to eachother, so the parameters must be considered as
 exposed variables so that they can be set equal to other variables.
 \end{remark}
 
-In this section, we'll a bit of how the behavioral approach to systems theory
+In this section, we'll see a bit of how the behavioral approach to systems theory
 works, and why we might want to do it. We'll begin with the main idea in
 \cref{sec:behavioral.idea}. Then, in \cref{sec:behavioral.diagrams}, we'll see that in the behavioral
 approach, there is a different sort of \emph{undirected} wiring diagram which
@@ -1958,7 +1958,7 @@ as the composite of two smaller circuits:
       to (2,2)
       to[R=$R$] (2,0) % The resistor
       to[L=$L$] (0,0);
-      
+
       \node (center) at (1,1) {};
       \node[circle,fill=black, inner sep = 1pt] (term1) at (2,0) {};
       \node[circle,fill=black, inner sep = 1pt] (term2) at (2,2) {};
@@ -2012,7 +2012,7 @@ composite of two smaller population flow graphs:
 \end{tikzpicture}
 \end{equation}
 We have added in the connection between New York and Tallahassee by gluing
-together the places in these two population flow graphs. 
+together the places in these two population flow graphs.
 
 
 How can we describe this kind of
@@ -2104,7 +2104,7 @@ a \emph{cospan}:
       \node[draw, fit={(end1)(end2)}] (outerports) {};
       \node[below = .3 cm of outerports] (portslabel) {$\Ports{S \circ_M T}$};
 
-      
+
       \draw [|->, shorten <= .3 cm, shorten >= .5 cm] (term1) to[bend left = 14] (mid1);
       \draw [|->, shorten <= .3 cm, shorten >= .5 cm] (term3) to[bend left = 10] (mid1);
       \draw [|->, shorten <= .3 cm, shorten >= .5 cm] (term2) to[bend left = 10] (mid2);
@@ -2315,7 +2315,7 @@ As a corollary of our abstract description of labelled graphs, we can see quite 
 For any graph $\mathcal{L}$ of labels, the category $\Cat{Graph}_{\mathcal{L}}$ of graphs labelled in $\mathcal{L}$ has all finite colimits which can be calculated in $\Cat{Graph}$.
   \end{proposition}
   \begin{proof}
-This is a general fact concerning slice categories, see for example Proposition 3.3.8 of \cite{Riehl:intro.to.cats}.
+This is a general fact concerning slice categories, see for example \cite[Proposition 3.3.8]{Riehl:Cats.in.context}.
   \end{proof}
 
   Going further, if we have any map $f : \mathcal{L} \mathcal{L}'$ of label graphs, we get a functor
