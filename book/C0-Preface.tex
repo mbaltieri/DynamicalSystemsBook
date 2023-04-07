@@ -96,7 +96,7 @@ But \cref{inf.dynam_sys} is not so precise. Deterministic systems, systems of di
   \end{itemize}
 \end{informal}
 
-We will make this definition fully formal in \cref{Chapter.3}, after introducing enough category theory to state it. Once we have made the definition of systems theory formal, we can make the definition of system. But what is interesting about dynamical systems is how they \emph{behave}.
+We will make this definition fully formal in \cref{chapter.3}, after introducing enough category theory to state it. Once we have made the definition of systems theory formal, we can make the definition of system. But what is interesting about dynamical systems is how they \emph{behave}.
 \begin{informal}\label{inf:behavior}
   A \emph{behavior} of a dynamical system is a particular way its states can
   change according to its dynamics.
@@ -106,9 +106,9 @@ We will make this definition fully formal in \cref{Chapter.3}, after introducing
   repeat, or they stay the same despite changing conditions.
 \end{informal}
 
-In \cref{Chapter.3}, we will formalize this definition of behavior for each systems theory by noticing that for any given kind of behavior, there is almost always a system that \emph{represents} that behavior, in that it does exactly that behavior and nothing more. For example, a point moving uniformly on a line represents a trajectory, and a point moving on a circle represents a periodic orbit. We will also note that a particular behavior of a system will alway requires a particular choice of parameters, which we call the \emph{chart} of the behavior.
+In \cref{chapter.4}, we will formalize this definition of behavior for each systems theory by noticing that for any given kind of behavior, there is almost always a system that \emph{represents} that behavior, in that it does exactly that behavior and nothing more. For example, a point moving uniformly on a line represents a trajectory, and a point moving on a circle represents a periodic orbit. We will also note that a particular behavior of a system will alway requires a particular choice of parameters, which we call the \emph{chart} of the behavior.
 
-Using this realization, we will prove our main compositionality theorem in \cref{Chapter.5}. This theorem states, informally, the following facts concerning the composition of systems.
+Using this realization, we will prove our main compositionality theorem in \cref{chapter.5}. This theorem states, informally, the following facts concerning the composition of systems.
 \begin{itemize}
   \item Suppose that we are wiring
     our systems together in two stages. If we take a
@@ -123,7 +123,7 @@ Using this realization, we will prove our main compositionality theorem in \cref
     it with the first one and then with the second one.
   \item Suppose that we have a pair of
     wiring patterns and compatible charts between them. If we
-    take a bunch of behaviors whose charts are compatable according to the first
+    take a bunch of behaviors whose charts are compatible according to the first
     wiring pattern, wire them together, and then compose with a behavior of the
     second chart, we get the same thing as if we compose them all with behaviors
     of the first chart, noted that they were compatible with the second wiring
@@ -132,7 +132,7 @@ Using this realization, we will prove our main compositionality theorem in \cref
 
 These basic principles show us how the problem of understanding the behaviors of composite systems can be broken down consistently into the hopefully smaller problems of understanding the behaviors of their components, and the pattern of composition.
 
-This theorem comes down to some fully abstract category theory: the construction of \emph{representable lax doubly indexed functors}. Since the theorem is abstract, it can be applied not only to any systems theory as in \cref{informal.doctrine}, but any systems theory in any \emph{doctrine} (\cref{informal:paradigm}). In \cref{chapter.6}, we will see two other doctrines which give us substantially different ways to think about systems theory. But the compositionality theorem proven in \cref{Chapter.5} will apply to them as well.
+This theorem comes down to some fully abstract category theory: the construction of \emph{representable lax doubly indexed functors}. Since the theorem is abstract, it can be applied not only to any systems theory as in \cref{informal.doctrine}, but any systems theory in any \emph{doctrine} (\cref{informal:paradigm}). In \cref{chapter.6}, we will see two other doctrines which give us substantially different ways to think about systems theory. But the compositionality theorem proven in \cref{chapter.5} will apply to them as well.
 
 This book is intended as a first guide to the rapidly growing field of categorical systems theory. While the book does presume a knowledge of basic category theory (which can be gained from any one of the many wonderful introductions to the subject --- see \cref{sec:category.theory}), the special topics needed for the definitions and theorems --- indexed categories, double categories, doubly indexed categories and their functors --- will be introduced as they become necessary.
 
@@ -158,7 +158,7 @@ conversation. This book wouldn't exist without him.
 
 Emily Riehl has been a better advisor than I could have thought to have asked for. I want to thank her for her financial support (through grant ????) during the development of much of the mathematics in this book. I'll write more in my thesis, but as far as this book goes, I would like to thank her for her careful reading, her advice on logistics, and her patience.
 
-Thanks go to Emily Riehl, tslil clingman, Sophie Libkind, John Baez, Geoff Cruttwell, Brendan
+Thanks go to Emily Riehl, Tslil Clingman, Sophie Libkind, John Baez, Geoff Cruttwell, Brendan
 Fong, Christian Williams.
 
 Thanks to Henry Story for pointing out typos.

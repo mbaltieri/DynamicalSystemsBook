@@ -327,7 +327,7 @@ our bare clock \eqref{eqn.clock_system_box} and the $\const{a.m.}/\const{p.m.}$ 
 \end{tikzpicture}
 \end{equation}
 
-We've put both our systems $\Sys{Meridien}$ and $\Sys{Clock}$ into this bigger box with two outgoing wires. We didn't just dump these systems in the bigger box; we connected them up to each other and the outgoing wires. The resulting system has states
+We've put both our systems $\Sys{Meridian}$ and $\Sys{Clock}$ into this bigger box with two outgoing wires. We didn't just dump these systems in the bigger box; we connected them up to each other and the outgoing wires. The resulting system has states
 $$\Set{HoursWithDisplay} := \Set{Hour} \times \Set{a.m./p.m.}$$
 each of which is a pair, e.g.\ $(11, \const{a.m.})$, consisting of an hour and a meridian reading.
 They update in a combined way, by using the hour shown on the clock face as the
@@ -368,7 +368,7 @@ Again, we can represent the diner by this box:
 \end{equation}
 This time, we have two wires coming in, corresponding to the two parameters we
 need for the diner system: the hour and the
-meridien.
+meridian.
 
 Assuming that the diner has a clock on its wall which it uses to decide whether
 to open or close, the full diner system would be given by wiring the clock with display into
@@ -648,7 +648,7 @@ That is, we have
         3 &\mapsto b \\~\\~\\~\\
       \end{aligned} \quad\quad\quad\quad
  \begin{aligned}
-        \update{S} : \State{S} \times \In{S} &\to \In{S} \\
+        \update{S} : \State{S} \times \In{S} &\to \State{S} \\
         (1, {\color{dgreen} \const{green}}) &\mapsto 2 \\
         (1, {\color{orange} \const{orange}}) &\mapsto 1 \\
         (2, {\color{dgreen} \const{green}}) &\mapsto 3 \\
@@ -906,7 +906,7 @@ consists of:
   deterministic system in the cartesian category $\Cat{Euc}$. But while the
   $\rr^n$s occuring in $\update{S} : \rr^n \times \rr^m \to \rr^n$ look the
   same, they are in fact playing very different roles. The $\rr^n$ on the left
-  is playing the role of the state space, while the $\rr^n$ on the left is
+  is playing the role of the state space, while the $\rr^n$ on the right is
   playing the role of the tangent space at $s$ for some state $s \in \rr^n$. The
   difference will be felt in \cref{chapter.3} when we study behaviors of
   systems: the way a trajectory is defined is different
@@ -2425,6 +2425,7 @@ crisp. Let's see what the lens composition looks like in $\arity$:
     \draw[blue, dashed, |->] (pt_a3_2) -- (pt_b2_2);
 \end{tikzpicture}
 \]
+
 It's worth going through and seeing exactly how lens composition expresses the
 description we gave of nesting wiring diagrams above.
 
@@ -2471,7 +2472,7 @@ this observation in the following proposition.
 \end{proposition}
 \begin{proof}
   This is just \cref{prop.lens_functoriality} (and
-  \cref{prop.lens_functoriality_moniodal}) applied to $\Fun{ev}_C : \arity \to
+  \cref{prop.lens_functoriality_monoidal}) applied to $\Fun{ev}_C : \arity \to
   \cat{C}$ from \cref{prop.arity_universal_property}.
 \end{proof}
 
@@ -2859,7 +2860,7 @@ we will see how non-deterministic systems can be seen as a variant of lenses:
 The idea of composing dynamical systems --- deterministic and differential ---
 using lenses can be found in
 \cite{Vagner.Spivak.Lerman:2015a}. Further exploration of
-this idea for differential systems can be found in \cite{Bakirtsiz-Vasilakopolou-Fleming:Compositional.Cyber.Physical.Systems.Modelling}.
+this idea for differential systems can be found in \cite{Bakirtsiz.Vasilakopolou.Fleming:Compositional.Cyber.Physical.Systems.Modelling}.
 
 
 \end{document}

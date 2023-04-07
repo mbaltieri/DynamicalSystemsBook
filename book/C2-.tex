@@ -7,7 +7,7 @@
 \setcounter{chapter}{1}%Just finished 1.
 
 
-\chapter{Non-deterministic systems theories}\label{sec.non_deterministic_systems}
+\chapter{Non-deterministic systems theories}\label{chapter.2}
 
 So far, we have seen how deterministic systems of the discrete- and
 continuous-time variety can be wired together. But modelling a system
@@ -89,7 +89,7 @@ current state doesn't determine precisely the next state.
 
 \begin{definition}\label{def.possibilistic_system}
   A \emph{possibilistic system} $\Sys{S}$, also written as 
-  $$\lens{\update{S}}{\expose{S}} : \lens{\State{S}}{\State{S}} \leftrightarrows \lens{\In{S}}{\Out{S}},$$ 
+  $$\lens{\update{S}}{\expose{S}} : \lens{\powset\State{S}}{\State{S}} \leftrightarrows \lens{\In{S}}{\Out{S}},$$ 
   consists of:
   \begin{itemize}
     \item a set $\State{S}$ of \emph{states};
@@ -197,7 +197,7 @@ Let $\cat{C}$ be a cartesian category. A \emph{monad} $(M, \eta)$ on $\cat{C}$ c
 \begin{itemize}
   \item An assignment of an object $MA$ to every object $A \in \cat{C}$.
   \item For every object $A \in \cat{A}$, a map $\eta_A : A \to MA$.
-  \item For every map $f : A \to MB$, a \emph{lift} $f^M : MA \to MA$. 
+  \item For every map $f : A \to MB$, a \emph{lift} $f^M : MA \to MB$. 
 \end{itemize}
 This data is required to satisfy the following laws:
 \begin{itemize}
@@ -410,7 +410,7 @@ equation for $f : X \to MY$:
 }
 \coloneqq f^M(m)
 \end{equation}
-where $m$ is an element of $MX$ and $f : X \to MY$. For $M = \probset$, we can
+where $m$ is an element of $MX$ and $f : X \to MY$. For $M = \powset$, we can
 understand the do notation in this way: $m$ is a subset of $X$, $f^M(m)$ is the
 subset $\{f(x) \in Y \mid x \in m\}$. We see this reflected in the do notation;
 we can read it as saying ``get an element $x$ from $m$, and then apply $f(x)$ to
@@ -420,7 +420,7 @@ similar story can be told about them using the do notation.
 
 There are a few rules for do notation which correspond to the laws for a
 monad. We can discover them by using \cref{eqn.do_notation_def} to expand out a
-few terms. First of all, since $\eta_M = \id_{MX}$, if $m$ is an element of $MX$, then
+few terms. First of all, since $\eta_X^M = \id_{MX}$, if $m$ is an element of $MX$, then
 \[
   \unalignedDo{
     $x \from m$,
@@ -499,7 +499,7 @@ MQ.
 \]
 
 In particular, to iterate a system $\Sys{S}$ with update $\update{S} : \State{S}
-\times \In{S} \to \probset \State{S}$, we can define
+\times \In{S} \to \powset \State{S}$, we can define
 \[
 U(S, i) \coloneqq \unalignedDo{
   $s \from S$,
@@ -519,7 +519,7 @@ probability of a given change occuring, conditioned upon the current state. A
 useful way to formulate the notion of conditional probability is the notion of
 \emph{stochastic map}. A stochastic map from $A$ to $B$ is a function
 which takes an $a \in A$ and yields a probability distribution $p(- \mid a)$ on
-elements of $B$ which we think of as likelyhoods conditioned on $a$. We can make
+elements of $B$ which we think of as likelihoods conditioned on $a$. We can make
 this more precise using the notion of monad.
 
 \begin{definition}\label{def.set_of_probs}
@@ -616,7 +616,7 @@ $$p(b \mid a) \coloneqq f(a)(b).$$
 A stochastic system is a system whose dynamics is given by a stochastic map. 
 \begin{definition}\label{def.stochastic_system}
   A \emph{stochastic system} $\Sys{S}$, also written as 
-  $$\lens{\update{S}}{\expose{S}} : \lens{\State{S}}{\State{S}} \leftrightarrows \lens{\In{S}}{\Out{S}},$$ 
+  $$\lens{\update{S}}{\expose{S}} : \lens{\probset\State{S}}{\State{S}} \leftrightarrows \lens{\In{S}}{\Out{S}},$$ 
   consists of:
   \begin{itemize}
     \item a set $\State{S}$ of \emph{states};
@@ -626,10 +626,10 @@ A stochastic system is a system whose dynamics is given by a stochastic map.
     \item a function $\expose{S} : \State{S} \to \Out{S}$, the \emph{exposed variable of state} or
       \emph{expose} function, which takes a state to the output it yields; and
     \item a function $\update{S} : \State{S} \times \In{S} \to
-      \powset\State{S}$, where $\probset\State{S}$ is the set of subsets of
+      \probset\State{S}$, where $\probset\State{S}$ is the set of finitely supported probability distributions on
       $\State{S}$. This is the \emph{dynamics} or
       \emph{update} function which takes a state and a parameter and gives the
-      set of possible next states.
+      set of probability distributions on the next states.
   \end{itemize}
 \end{definition}
 \begin{remark}
@@ -802,7 +802,7 @@ f^{\probset}(p) \coloneqq \sum_{b \in \bigcup_{a \in X} Y_a} \left(  \sum_{a \in
       on $B$. In classical terms, this says that given conditional probabilities
       $p(b \mid a) \coloneqq f(a)(b)$ and any prior distribution $p(a) \coloneqq
       \lambda_a$, we can
-      form a posterior distribution
+      form a marginal distribution
       $p(b) \coloneqq \sum_{a\in A} p(b \mid a) p(a).$
    \item  Given a probability distribution $\sum_{a \in X} \lambda_a a$ on $A$
      and $\sum_{b \in Y} \mu_b b$ on $B$, we can form their joint distribution
@@ -1445,7 +1445,7 @@ Now we encompass all our non-deterministic examples in a single definition.
 \begin{definition}\label{def.monadic_system}
 Let $M : \cat{C} \to \cat{C}$ be a commutative monad. A (discrete-time)
 $M$-system $\Sys{S}$, also written as   
-  $$\lens{\update{S}}{\expose{S}} : \lens{\State{S}}{\State{S}} \leftrightarrows \lens{\In{S}}{\Out{S}},$$ 
+  $$\lens{\update{S}}{\expose{S}} : \lens{M\State{S}}{\State{S}} \leftrightarrows \lens{\In{S}}{\Out{S}},$$ 
 is a system whose dynamics is given by a Kleisli map for $M$. It consists of:
   \begin{itemize}
     \item an object $\State{S}$ of \emph{states};
@@ -1486,10 +1486,10 @@ prohibitively expensive, or impossible.
     \]
     is the set of cost functions $c : A \to [0, \infty]$ which assign finite
     values to only finitely many elements of $A$.
-  \item For a set $A$, $\eta_{\Fun{Cost}} : A \to \Fun{Cost}(A)$ assumes that we
+  \item For a set $A$, $\eta_{A} : A \to \Fun{Cost}(A)$ assumes that we
     can only produce what we have, but that if we already have it, it's free. Formally:
 \[
-\eta_{\Fun{Cost}}(a)(a') \coloneqq \begin{cases} 0 &\mbox{if $a = a'$} \\
+\eta_{A}(a)(a') \coloneqq \begin{cases} 0 &\mbox{if $a = a'$} \\
   \infty &\mbox{otherwise}\end{cases}
 \]
 
@@ -1724,7 +1724,7 @@ We will show that the assignment $A \mapsto \probset(\rr \times A)$
  the monad $M$''. We can do this explicitly using the map $\lambda : R \times MA
  \to M(R \times A)$ defined to be the composite
  \[
-\lambda \coloneqq R \times MA \xto{\eta_M \times \id} MR \times MA \xto{\sigma^M} M(R \times A)
+\lambda \coloneqq R \times MA \xto{\eta^M \times \id} MR \times MA \xto{\sigma^M} M(R \times A)
  \]
 Intuitively, this takes a reward $r \in R$ and a non-deterministic $a \in MA$
 and gives us the non-determinstic pair $(r, a)$.
@@ -1734,14 +1734,14 @@ Let $M$ be a commutative monad and $(R, +, 0)$ a commutative monoid. Then the
 assignment $A \mapsto M(R \times A)$ is a commutative monad with the following
 structure:
 \begin{itemize}
-  \item $\eta_{M(R\times -)} : A \to M(R \times A)$ is the composite $A
-    \xto{\eta_R} R \times A \xto{\eta_M} M(R \times A)$.
+  \item $\eta : A \to M(R \times A)$ is the composite $A
+    \xto{\eta_A} R \times A \xto{\eta_{R \times A}} M(R \times A)$.
   \item Given $f : A \to M(R \times B)$, we define $f^{M(R \times -)}$ to be the
     following composite:
     \begin{multline*}
 M(R \times A) \xto{M(R \times f)} M(R \times M(R \times B)) \xto{M\lambda} MM(R \times R \times B)\\\xto{\mu^{M}} M(R \times R \times B) \xto{M\mu^R} M(R \times B).
       \end{multline*}
- Intuitively, this takes a non-deterministic pair $(r, a)$ and, gets the
+ Intuitively, this takes a non-deterministic pair $(r, a)$ and gets the
  non-deterministic pair $f(a) = (f_1(a), f_2(a))$, and then returns the
  non-deterministic pair $(r + f_1(a), f_2(a))$.
   \item Given sets $A$ and $B$, we define $\sigma^{M(R \times -)} : M(R \times
@@ -1802,10 +1802,10 @@ Instead of having a chance of transitioning and getting a reward, we might think
 that the agent has an expected reward for each action. Since this is an
 expectation, it is independent of the actual resulting state.
 
-If we had a likelyhood $u \in \probset(\rr \times \State{S})$ of transitioning
+If we had a likelihood $u \in \probset(\rr \times \State{S})$ of transitioning
 to a state and getting a reward, then we could calculate our expected reward by
 taking the expectated value of the marginalization of $u$ to $\rr$.To find the
-likelyhood of transitioning to the next state, independent of reward, we just
+likelihood of transitioning to the next state, independent of reward, we just
 marginalize $u$ to $\State{S}$. This gives
 us a map
 \[
@@ -2051,13 +2051,13 @@ This lets us turn a stochastic system into a possibilistic system, saying that a
 transition is possible if it has non-zero probability.
 
 \begin{exercise}
-Show that $\probset \eta_{\rr} : \probset A \to \probset(\rr \times A)$ is a
+Show that $\probset \eta : \probset A \to \probset(\rr \times A)$ is a
 commutative monad morphism. That is, show that the following diagrams commute:
 \begin{enumerate}
 \item
   \begin{equation}
     \begin{tikzcd}
-    A \ar[r, "\eta_{\probset}"] \ar[dr, "\eta_{\probset(\rr \times -)}"'] & \probset A \ar[d, "\probset(\eta_{\rr})"] \\
+    A \ar[r, "\eta"] \ar[dr, "\eta_{\probset(\rr \times -)}"'] & \probset A \ar[d, "\probset(\eta)"] \\
     & \probset(\rr \times A) 
     \end{tikzcd}
   \end{equation}
