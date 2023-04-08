@@ -196,18 +196,18 @@ This operation comes from the fact that $\powset$ is a \emph{commutative monad}.
 Let $\cat{C}$ be a cartesian category. A \emph{monad} $(M, \eta)$ on $\cat{C}$ consists of:
 \begin{itemize}
   \item An assignment of an object $MA$ to every object $A \in \cat{C}$.
-  \item For every object $A \in \cat{A}$, a map $\eta_A : A \to MA$.
+  \item For every object $A \in \cat{A}$, a map $\eta : A \to MA$.
   \item For every map $f : A \to MB$, a \emph{lift} $f^M : MA \to MB$. 
 \end{itemize}
 This data is required to satisfy the following laws:
 \begin{itemize}
-  \item (Unit) For any object $A$, \[\eta_{A}^M = \id_{MA}.\]
-  \item (Identity) For any map $f : A \to MB$, \[f^M \circ \eta_A = f.\]
+  \item (Unit) For any object $A$, \[\eta^M = \id_{MA}.\]
+  \item (Identity) For any maps $\eta : A \to MA$, $f : A \to MB$, \[f^M \circ \eta = f.\]
   \item (Composition) For any $f : A \to MB$ and $g : B \to MC$,
 \[ g^M \circ f^M = (g^M \circ f)^M.\]
 \end{itemize}
 From this data, we note that we can extend $M$ into a functor $M : \cat{C} \to
-\cat{C}$ by sending $f : A \to B$ to $Mf \coloneqq (\eta_B \circ f)^M : MA \to
+\cat{C}$ by sending $f : A \to B$ to $Mf \coloneqq (\eta \circ f)^M : MA \to
 MB$.
 Then $\eta : A \to MA$ is natural in $A$, and we get another natural
 transformation $\mu : MM A \to M A$ defined by lifting the identity: $\mu
@@ -272,7 +272,7 @@ transformation $\sigma : MA \times MB \to M(A \times B)$ for which the following
 
 \begin{remark}\label{rmk.haskell_do}
   If you are familiar with the programming language Haskell, you will likely be
-  familiar with the notion of monad. What we have called $\eta_A$ here (which is
+  familiar with the notion of monad. What we have called $\eta$ here (which is
   traditional in the category theory literature) is called
   \mintinline{haskell}{return} or \mintinline{haskell}{pure}. What we have
   called $f^M$ for $f : A \to MB$ would, in haskell, be called
@@ -314,7 +314,7 @@ transformation $\sigma : MA \times MB \to M(A \times B)$ for which the following
 \begin{proof}
   We just need to check the laws.
   \begin{itemize}
-    \item The function $\eta_A^{\powset}$ takes a set $X \in \powset A$ and
+    \item The function $\eta^{\powset}$ takes a set $X \in \powset A$ and
       yields $\bigcup_{x \in X} \{x\}$, which is equal to $X$.
     \item Let $f : A \to \powset B$ be a function. Then $f^{\powset}(\{a\}) =
       \bigcup_{a' \in \{a\}}f(a') = f(a)$ for any element $a \in A$.
@@ -331,7 +331,7 @@ transformation $\sigma : MA \times MB \to M(A \times B)$ for which the following
 It remains to show that the powerset monad is commutative. We note that
 $\powset$ acts as a functor on $f : A \to B$ by 
 \[
-\powset f (X) = (\eta_B \circ
+\powset f (X) = (\eta \circ
 f)^{\powset}(X) = \bigcup_{a \in X}\{f(a)\} = f[X].
 \]
 sending a subset of $A$ to its image in $B$. We also note that $\mu : \powset^2
@@ -420,7 +420,7 @@ similar story can be told about them using the do notation.
 
 There are a few rules for do notation which correspond to the laws for a
 monad. We can discover them by using \cref{eqn.do_notation_def} to expand out a
-few terms. First of all, since $\eta_X^M = \id_{MX}$, if $m$ is an element of $MX$, then
+few terms. First of all, since $\eta^M = \id_{MX}$, if $m$ is an element of $MX$, then
 \[
   \unalignedDo{
     $x \from m$,
@@ -783,12 +783,12 @@ powerset $\powset$ monad.
   The assignment of a set $A$ to its set $\probset A$ of probability
   distributions is a commutative monad with the data:
   \begin{itemize}
-    \item $\eta_A : A \to \probset A$ sends every element $a$ to its \emph{Dirac
-      delta distribution} $\eta_{A}(a) = 1 \cdot a$ which assigns probability
+    \item $\eta : A \to \probset A$ sends every element $a$ to its \emph{Dirac
+      delta distribution} $\eta(a) = 1 \cdot a$ which assigns probability
     $1$ to $a$ and probability $0$ to everything else. As a convex linear
     combination, it looks like this:
     \[
-\eta_A(a) = \sum_{a' \in \{a\}} 1 \cdot a'
+\eta(a) = \sum_{a' \in \{a\}} 1 \cdot a'
     \]
     \item Given a stochastic map $f : A \to \probset B$ sending $a \in A$ to $f(a)
       = \sum_{b \in Y_a} \rho_{ba} b$, we can \emph{push
@@ -818,16 +818,16 @@ two independent events is the product of their probabilities: $p(a, b) = p(a)p(b
   We check the laws:
   \begin{itemize}
   \item If we push forward a distribution $p = \sum_{a \in X}\lambda_a a$ along
-    $\eta_A : A \to \probset A$, we get
+    $\eta : A \to \probset A$, we get
     \[
-    \eta_A^{\probset}(p) = \sum_{a \in X} \sum_{a' \in \{a\}} 1\cdot
+    \eta^{\probset}(p) = \sum_{a \in X} \sum_{a' \in \{a\}} 1\cdot
     \lambda_{a'}  a' = \sum_{a \in X}\lambda_a a.
 \]
   \item For a stochastic map $f : A \to \probset B$, we aim to show that pushing
-    forward the Dirac delta distribution $\eta_A(a)$ along $f$ gives $f(a) =
+    forward the Dirac delta distribution $\eta(a)$ along $f$ gives $f(a) =
     \sum_{b \in Y_a} \lambda_{b a} b$. The definition of push forward gives us
     \[
-f^{\probset}(\eta_A(a)) = \sum_{a' \in \{a\}}\sum_{b \in Y_{a'}}
+f^{\probset}(\eta(a)) = \sum_{a' \in \{a\}}\sum_{b \in Y_{a'}}
 \lambda_{ba} \cdot 1 \cdot b = \sum_{b \in Y_a} \lambda_{ba} b.
     \]
    \item Given stochastic functions $f : A \to \probset B$ and $g : B \to
@@ -851,7 +851,7 @@ g^{\probset}(f(a)) = \sum_{c \in \bigcup_{b \in \bigcup_{a \in X} Y_a }} \gamma_
   \end{itemize}
 
   Next, we check that the laws of a commutative monad hold. We note that for a
-  function $f : A \to B$, the function $\probset f = (\eta_B \circ
+  function $f : A \to B$, the function $\probset f = (\eta \circ
   f)^{\probset}$ is defined by
   \[\probset f\left( \sum_{a \in X} \lambda_a a \right) = \sum_{a \in X} \sum_{b
     \in \{f(a)\}} \lambda_a b = \sum_{a \in X} \lambda_a f(a).\]
@@ -954,7 +954,7 @@ commutativity then makes the Kleisli category into a symmetric monoidal category
   \begin{itemize}
     \item The objects of $\Cat{Kl}(M)$ are the same as those of $\cat{C}$.
     \item A map $f : A \wavyto B$ in $\Cat{Kl}(M)$ is a map $f : A \to MB$ in $\cat{C}$.
-    \item The identity $\id_A : A \wavyto A$ is $\eta_A : A \to MA$.
+    \item The identity $\id_A : A \wavyto A$ is $\eta : A \to MA$.
     \item For $f : A \wavyto B$ and $g : B \wavyto C$, their composite is $f
       \then g^M : A \to MC$. In do notation, the Kleisli composite is given by 
 \[
@@ -1486,10 +1486,10 @@ prohibitively expensive, or impossible.
     \]
     is the set of cost functions $c : A \to [0, \infty]$ which assign finite
     values to only finitely many elements of $A$.
-  \item For a set $A$, $\eta_{A} : A \to \Fun{Cost}(A)$ assumes that we
+  \item For a set $A$, $\eta : A \to \Fun{Cost}(A)$ assumes that we
     can only produce what we have, but that if we already have it, it's free. Formally:
 \[
-\eta_{A}(a)(a') \coloneqq \begin{cases} 0 &\mbox{if $a = a'$} \\
+\eta(a)(a') \coloneqq \begin{cases} 0 &\mbox{if $a = a'$} \\
   \infty &\mbox{otherwise}\end{cases}
 \]
 
@@ -1664,9 +1664,9 @@ following data:
 \begin{itemize}
   \item To each set $A$, we associate the set $R \times A$ of pairs of a reward
     and an element of $A$.
-  \item For each set $A$, we have $\eta_A : A \to R \times A$ given by yielding
+  \item For each set $A$, we have $\eta : A \to R \times A$ given by yielding
     no reward:
-    $\eta_A(a) = (0, a).$
+    $\eta(a) = (0, a).$
   \item For a function $f : A \to R \times B$ which yields an element of $B$ and
     a reward, we give the function
     \[
@@ -1732,14 +1732,14 @@ and gives us the non-determinstic pair $(r, a)$.
 \begin{proposition}
 Let $M$ be a commutative monad and $(R, +, 0)$ a commutative monoid. Then the
 assignment $A \mapsto M(R \times A)$ is a commutative monad with the following
-structure:
+structure\footnote{When using multiple $\eta$'s, $\mu$'s or $\sigma$'s, subscripts will from now on be used to refer to different monads.}:
 \begin{itemize}
-  \item $\eta : A \to M(R \times A)$ is the composite $A
-    \xto{\eta_A} R \times A \xto{\eta_{R \times A}} M(R \times A)$.
+  \item $\eta_{M(R\times -)} : A \to M(R \times A)$ is the composite $A
+    \xto{\eta_R} R \times A \xto{\eta_M} M(R \times A)$.
   \item Given $f : A \to M(R \times B)$, we define $f^{M(R \times -)}$ to be the
     following composite:
     \begin{multline*}
-M(R \times A) \xto{M(R \times f)} M(R \times M(R \times B)) \xto{M\lambda} MM(R \times R \times B)\\\xto{\mu^{M}} M(R \times R \times B) \xto{M\mu^R} M(R \times B).
+M(R \times A) \xto{M(R \times f)} M(R \times M(R \times B)) \xto{M\lambda} MM(R \times R \times B)\\\xto{\mu_{M}} M(R \times R \times B) \xto{M\mu_R} M(R \times B).
       \end{multline*}
  Intuitively, this takes a non-deterministic pair $(r, a)$ and gets the
  non-deterministic pair $f(a) = (f_1(a), f_2(a))$, and then returns the
@@ -1747,8 +1747,8 @@ M(R \times A) \xto{M(R \times f)} M(R \times M(R \times B)) \xto{M\lambda} MM(R 
   \item Given sets $A$ and $B$, we define $\sigma^{M(R \times -)} : M(R \times
     A) \to M(R \times B)$ to be the composite
     \[
-M(R \times A) \xto M(R \times B) \xto{\sigma^M} M((R \times A) \times (R \times
-B)) \xto{M\sigma^R} M(R \times A \times B).
+M(R \times A) \xto M(R \times B) \xto{\sigma_M} M((R \times A) \times (R \times
+B)) \xto{M\sigma_R} M(R \times A \times B).
     \]
 \end{itemize}
 \end{proposition}
@@ -1795,7 +1795,7 @@ cumulative reward of $r$.
 \end{example}
 
 
-\iffalse
+% \iffalse
 \paragraph{Popping rewards out of a monad}
 
 Instead of having a chance of transitioning and getting a reward, we might think
@@ -1804,7 +1804,7 @@ expectation, it is independent of the actual resulting state.
 
 If we had a likelihood $u \in \probset(\rr \times \State{S})$ of transitioning
 to a state and getting a reward, then we could calculate our expected reward by
-taking the expectated value of the marginalization of $u$ to $\rr$.To find the
+taking the expectated value of the marginalization of $u$ to $\rr$. To find the
 likelihood of transitioning to the next state, independent of reward, we just
 marginalize $u$ to $\State{S}$. This gives
 us a map
@@ -1928,7 +1928,7 @@ E\left( r \mapsto \sum_i \lambda_i p_i(r) \right) = \sum_{r \in \rr} \sum_i \lam
   This comes down to showing that $+$ is convex linear, which it quite clearly is.
 \end{proof}
 
-\fi
+% \fi
 
 
 
@@ -1961,14 +1961,14 @@ the following diagrams commute:
 \item
   \begin{equation}\label{eqn.com_monad_map_mult}
     \begin{tikzcd}
-    M^2 A \ar[r, "M\phi \then \phi"] \ar[d, "\mu^M"'] & N^2 A \ar[d, "\mu^N"] \\
+    M^2 A \ar[r, "M\phi \then \phi"] \ar[d, "\mu_M"'] & N^2 A \ar[d, "\mu_N"] \\
     M A \ar[r, "\phi"'] & NA
     \end{tikzcd}
   \end{equation}
 \item
   \begin{equation}\label{eqn.com_monad_map_tensor}
     \begin{tikzcd}
-    MA \times M B \ar[r, "\phi \times \phi"] \ar[d, "\sigma^M"'] & N A \times N B \ar[d, "\sigma^N"] \\
+    MA \times M B \ar[r, "\phi \times \phi"] \ar[d, "\sigma_M"'] & N A \times N B \ar[d, "\sigma_N"] \\
     M (A \times B) \ar[r, "\phi"'] & N(A \times B)
     \end{tikzcd}
   \end{equation}
@@ -1982,7 +1982,7 @@ the following diagrams commute:
   $\eta_M$. \end{proposition}
 \begin{proof}
 Let $\phi$ be such a map. Then condition \cref{eqn.com_monad_map_unit} says
-precisely that $\phi = \eta_M$. So it just remains to check that $\eta$ is a commutative monad map.
+precisely that $\phi = \eta_M$. So it just remains to check that $\eta_M$ is a commutative monad map.
   Now, \cref{eqn.com_monad_map_unit} commutes trivially, and
   \cref{eqn.com_monad_map_mult} is in this case one of the diagrams defining $M$
   from \cref{eqn.monad_laws}. Finally, \cref{eqn.com_monad_map_tensor} is in
